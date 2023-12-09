@@ -3,12 +3,17 @@
     justify-content: space-around;
     padding: 16px;
     box-shadow: 0 1px 3px -2px black;
+    background: navajowhite;
 
 }
 .navbar-logo p{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: flexbox;
+    margin-left: auto;
+    margin-top: auto;
+    margin-right: auto;
+    font-weight: 500;
+    font-size: xx-large;
+    text-size-adjust: aut;
 }
 .nav-menu{
     display: flex;
@@ -40,30 +45,31 @@
     gap: 45px;
 }
 .nav-login-cart button{
-    width: 157px;
-    height: 58px;
-    outline: none;
-    border: 1px solid #7a7a7a;
-    border-radius: 75px;
-    color: #515151;
-    font-size: 20px;
-    font-weight: 500;
-    background: white;
+    width: 100px;
+    height: 48px;
+    outline: auto;
+    border: 0.4px solid #7a7a7a;
+    border-radius: 45px;
+    color: gray;
+    font-size: 17px;
+    font-weight: 300;
+    background: none;
     cursor: pointer;
+    gap: 10px;
 }
 .nav-login-cart button:active{
     background: yellow;
 }
 .nav-cart-count{
-    width: 22px;
-    height: 22px;
+    width: 42px;
+    height: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -35px;
-    margin-left: -55px;
-    border-radius: 11px;
+    margin-top: 10px;
+    margin-left: 0px;
+    border-radius: 110px;
     font-size: 14px;
     background: red;
-    color: white;
+    color: yellow;
 }
