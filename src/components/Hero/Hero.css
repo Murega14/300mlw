@@ -1,0 +1,36 @@
+.animated-text {
+    text-align: center;
+}
+.hero {
+    display: flex;
+    height: 100vh;
+    flex-wrap: wrap;
+    padding: 1rem;
+    justify-content: space-between;
+   }
+   
+.hero-left {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+   }
+   
+    .product-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: calc(25% - 1rem);
+    margin: 0.5rem;
+    padding: 1rem;
+    position: relative;
+    top: 0;
+    left: 0;  
+    right: 0;
+    bottom: 0;
+
+   }
+   
+    .product-card img {
+    max-width: 100%;
+    height: auto;
+   }
