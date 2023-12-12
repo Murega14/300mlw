@@ -23,16 +23,15 @@
     color: #fff;
     margin: 0 10px;
     position: relative;
+    cursor: pointer;
    }
    
    .nav-menu li hr {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     border: none;
-    border-bottom: 2px solid #fff;
-    transition: 0.3s;
+    width: 80%;
+    height: 3px;
+    border-radius: 10px;
+    background: #FF4141;
    }
    
    .nav-menu li:hover hr {
