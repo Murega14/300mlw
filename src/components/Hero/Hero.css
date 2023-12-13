@@ -1,36 +1,98 @@
-.animated-text {
-    text-align: center;
-}
-.hero {
-    display: flex;
-    height: 100vh;
-    flex-wrap: wrap;
-    padding: 1rem;
-    justify-content: space-between;
-   }
-   
-.hero-left {
+.horizontal-scrolling-cards {
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
+    position: relative;
+    background: #f2f2f2;
     width: 100%;
     justify-content: center;
-    gap: 20px;
-   }
-   
-    .product-card {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: calc(25% - 1rem);
-    margin: 0.5rem;
-    padding: 1rem;
-    position: relative;
-    top: 0;
-    left: 0;  
+    align-items: center;
+    margin: 50px 0;
+  }
+  
+  .arrow {
+    background-color: #f5f5f5;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+  
+  .arrow-left {
+    left: 0;
+  }
+  
+  .arrow-right {
     right: 0;
-    bottom: 0;
+  }
+  
+  .cards-container {
+    display: flex;
+    /* Adjust width according to the number of cards */
+    width: calc(300px * 6); /* Assuming 4 cards, adjust it based on the number of cards */
+    transition: transform .4s;
+    overflow-x: hidden; /* Use 'auto' or 'scroll' for horizontal overflow */
+    background: #f2f2f2;
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+    gap: 20px;
 
-   }
-   
-    .product-card img {
-    max-width: 100%;
-    height: auto;
-   }
+  }
+
+  
+  .card-item {
+    width: 400px;
+    height: 400px;
+    border: 1px solid cream;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: block;
+    margin: 0 auto; /* Added some margin for card separation */
+  }
+
+  .card-item:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16),
+    0 3px 6px rgba(0,0,0,0.23);
+    transform: translate(0px, -8px);
+  }
+
+  .card-button {
+    display: inline-block;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+    transition: background-color 0.3s;
+}
+
+.card-button:hover {
+    background-color: gold;
+}
+
+.card-button button {
+    border: none;
+    background-color: transparent;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    cursor: inherit;
+    text-align: inherit;
+}
+  
