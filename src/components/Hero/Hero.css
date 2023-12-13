@@ -3,15 +3,14 @@
     flex-wrap: wrap;
     overflow: hidden;
     position: relative;
-    background: #f2f2f2;
-    width: 100%;
+    background: white;
     justify-content: center;
     align-items: center;
     margin: 50px 0;
   }
   
   .arrow {
-    background-color: #f5f5f5;
+    background-color: white;
     border: none;
     color: #333;
     cursor: pointer;
@@ -34,32 +33,24 @@
   .cards-container {
     display: flex;
     /* Adjust width according to the number of cards */
-    width: calc(300px * 6); /* Assuming 4 cards, adjust it based on the number of cards */
+    width: calc(200px * 7); /* Assuming 4 cards, adjust it based on the number of cards */
     transition: transform .4s;
     overflow-x: hidden; /* Use 'auto' or 'scroll' for horizontal overflow */
-    background: #f2f2f2;
+    overflow-y: hidden;
+    background: white;
     float: left;
     box-sizing: border-box;
     text-align: center;
     border-radius: 20px;
     cursor: pointer;
-    gap: 20px;
-
+    gap: 50px;
+    margin-top: 0px;
   }
 
   
   .card-item {
-    width: 400px;
-    height: 400px;
-    border: 1px solid cream;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    display: block;
-    margin: 0 auto; /* Added some margin for card separation */
+    background: white;
+    margin: 20px;  /* Added some margin for card separation */
   }
 
   .card-item:hover{
@@ -73,7 +64,7 @@
     border: 1px solid #ddd;
     padding: 8px 16px;
     border-radius: 4px;
-    background-color: #f9f9f9;
+    background-color: yellowgreen;
     cursor: pointer;
     text-align: center;
     font-size: 14px;
@@ -91,7 +82,7 @@
     background-color: transparent;
     font-size: inherit;
     font-weight: inherit;
-    color: inherit;
+    color: black;
     cursor: inherit;
     text-align: inherit;
 }

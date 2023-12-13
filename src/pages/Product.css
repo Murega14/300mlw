@@ -1,0 +1,34 @@
+.product-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 16px;
+    background-color: azure;
+    text-decoration: solid;
+   }
+   
+   .prouct-card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: azure;
+   }
+   
+   .product-card {
+    background: azure;
+    margin: 20px;
+    text-decoration: none;
+   }
+
+.product-card:hover {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16),
+    0 3px 6px rgba(0,0,0,0.23);
+    transform: translate(0px, -8px);
+}
+   
+   .product-card img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border: 14px;
+   }

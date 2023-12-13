@@ -4,7 +4,7 @@ import './Hero.css';
 function Hero({ cards }) {
     const cardsContainerRef = useRef(null);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const cardWidth = 100;
+    const cardWidth = 50;
 
     const scrollLeft = () => {
         if (currentIndex > 0) {
