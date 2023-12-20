@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import './Hero.css';
 
-function Hero({ cards, addToCart }) {
+function Hero({ cards, handleClick }) {
   const cardsContainerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const cardWidth = 50;
@@ -26,11 +26,6 @@ function Hero({ cards, addToCart }) {
     }
   };
 
-  const handleAddToCart = (product) => {
-    // Pass the clicked card object to the `addToCart` prop
-    addToCart({ ...product }); // Spread the card object for shallow copy
-  };
-
   return (
     <div className="horizontal-scrolling-cards">
       <button onClick={scrollLeft} className="arrow arrow-left">
@@ -38,13 +33,13 @@ function Hero({ cards, addToCart }) {
       </button>
       <div className="cards-container" ref={cardsContainerRef}>
         {cards &&
-          cards.map((card, index) => (
-            <div key={index} className="card-item">
-              <img src={card.Image} alt={card.content} />
+          cards.map((card) => (
+            <div key={card.id} className="card-item">
+              <img src={card.Image} alt={card.name} />
               <p>{card.name}</p>
               <p>{card.price}</p>
               <div className="card-button">
-                <button onClick={() => handleAddToCart(card)}>Buy</button>
+                <button onClick={() => handleClick(card)}>Buy</button>
               </div>
             </div>
           ))}

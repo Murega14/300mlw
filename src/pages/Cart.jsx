@@ -1,44 +1,53 @@
 import React, { useEffect, useState } from 'react';
 
-function Cart() {
-  const [cartItems, setCartItems] = useState([]); // Ensure cartItems is initialized as an empty array
+const Cart = ({ cart, setCart, handleChange }) => {
+  const [price, setPrice] = useState(0);
 
-  // Load cart items from localStorage on component mount
+  const handleRemove = (id) => {
+    const arr = cart.filter((card) => card.id !== id);
+    setCart(arr);
+  };
+
   useEffect(() => {
-    const storedCartItems = localStorage.getItem('cartItems');
-    if (storedCartItems) {
-      setCartItems(JSON.parse(storedCartItems));
-    }
-  }, []);
+    const handlePrice = () => {
+      let ans = 0;
+      if (cart && cart.length > 0) {
+        cart.forEach((card) => (ans += card.amount * parseFloat(card.price.replace('Ksh ', ''))));
+      }
+      setPrice(ans);
+    };
 
-  // Update cartItems and localStorage when cart changes
-  const addToCart = (product) => {
-    const updatedCart = [...cartItems, product];
-    setCartItems(updatedCart);
-    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
-  };
-
-  // Function to calculate subtotal
-  const calculateSubtotal = () => {
-    return cartItems.reduce((sum, item) => sum + parseFloat(item.price), 0); // Ensure item.price is converted to a number
-  };
+    handlePrice();
+  }, [cart]); // Run when cart changes
 
   return (
-    <div className="cart">
-      {/* Display cart items */}
-      <ul>
-        {cartItems.map((item, index) => (
-          <li key={index}>
-            {item.name} - {item.price}
-          </li>
-        ))}
-      </ul>
-      {/* Display subtotal */}
-      <p>Subtotal: {calculateSubtotal()}</p>
-      {/* Add items to cart */}
-      <button onClick={() => addToCart({ name: 'Product', price: '10' })}>Add to Cart</button>
-    </div>
+    <article>
+      {cart && cart.length > 0 ? (
+        cart.map((card) => (
+          <div className="cart_box" key={card.id}>
+            <div className="cart_img">
+              <img src={card.Image} alt={card.name} />
+              <p>{card.name}</p>
+            </div>
+            <div>
+              <button onClick={() => handleChange(card, 1)}>+</button>
+              <button>{card.amount}</button>
+              <button onClick={() => handleChange(card, -1)}>-</button>
+            </div>
+            <div>
+              <span>Ksh {card.price}</span>
+              <button onClick={() => handleRemove(card.id)}>Remove</button>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p>Your cart is empty.</p>
+      )}
+      <div className="cart_total">
+        <p>Total: Ksh {price}</p>
+      </div>
+    </article>
   );
-}
+};
 
 export default Cart;

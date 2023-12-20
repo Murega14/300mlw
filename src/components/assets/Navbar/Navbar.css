@@ -1,5 +1,8 @@
 /* Add this CSS code to your Navbar.css file */
-
+* {
+    margin: 0;
+    padding: 0;
+}
 .navbar {
     display: flex;
     justify-content: space-between;
