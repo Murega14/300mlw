@@ -1,9 +1,23 @@
 import React from 'react'
+import './main.css'
 
-const Mixers = () => {
+const cards = []
+
+function Mixers() {
   return (
-    <div>Mixers</div>
-  )
+    <div className='container'>
+      {cards && cards.map((card => (
+        <div key={card.id} className='card'>
+          <img src={card.image} alt={card.name} />
+          <h3>{card.name}</h3>
+          <p>{card.price}</p>
+        <div className='card-button'>
+          <button>Buy</button>
+        </div>
+        </div>
+      )))}
+    </div>
+    )
 }
 
 export default Mixers

@@ -38,7 +38,7 @@ function Hero({ cards, handleClick }) {
               <img src={card.Image} alt={card.name} />
               <p>{card.name}</p>
               <p>{card.price}</p>
-              <div className="card-button">
+              <div className="cardbutton">
                 <button onClick={() => handleClick(card)}>Buy</button>
               </div>
             </div>
