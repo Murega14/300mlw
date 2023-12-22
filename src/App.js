@@ -49,7 +49,7 @@ function App() {
   return (
     <React.Fragment>
       <Navbar setShow={setShow} size={cart.length} />
-      <Routes>
+     <Routes>
         <Route path="/" element={<Home handleClick={handleClick} />} />
         <Route path="/product" element={<Product />} />
         <Route path="/cart" element={<Cart cart={cart} handleChange={handleChange} setCart={setCart} />} />
@@ -59,7 +59,6 @@ function App() {
         <Route path="/whiskey" element={<Whiskey />} />
         <Route path="/vodka" element={<Vodka />} />
         <Route path="/beer" element={<Beer />} />
-        {/* Add more routes as needed */}
       </Routes>
     </React.Fragment>
   );

@@ -15,7 +15,7 @@ const cards = [
     {image: jd, name: 'Jack Daniels 750ML', price: 'Ksh 3,000', id: '34' },
     {image: jimbeam, name: 'Jim Beam 750ML', price: 'Ksh 2,500', id: '32' },
     {image: redlabel, name: 'Red Label 750ML', price: 'Ksh 1,800', id: '35' },
-    {image: singleton, name: 'Singleton 750ML', price: 'Ksh 4,500', id: '31' },
+    {image: singleton, name: 'Singleton 12yrs 750ML', price: 'Ksh 4,500', id: '31' },
     {image: blacklabel, name: 'Black Label 750ML', price: 'Ksh 2,800', id: '36' },
     {image: allseasons, name: 'All Seasons 750ML', price: 'Ksh 1,200', id: '37' },
     
