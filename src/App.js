@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes} from 'react-router-dom';
+import 'swiper/swiper-bundle.css'
 import './App.css';
 import Navbar from './components/assets/Navbar/Navbar';
 import Home from './pages/Home';
@@ -13,6 +14,7 @@ import Vodka from './pages/Vodka';
 import Beer from './pages/Beer';
 
 function App() {
+
   const [cart, setCart] = React.useState([]);
   const [setShow] = React.useState(true);
 

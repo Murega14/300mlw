@@ -24,6 +24,7 @@
     background: azure;
     margin: 20px;
     text-decoration: none;
+    flex: 1 16%;
    }
 
 .product-card:hover {
@@ -33,8 +34,31 @@
 }
    
    .product-card img {
-    width: 200px;
+    max-width: 100%;
     height: 300px;
     object-fit: cover;
     border: 14px;
    }
+
+   .product-card p{
+    margin-top: auto;
+}
+
+@media (max-width: 920px) {
+    .product-card {
+        flex: 1 21%;
+    }
+}
+
+@media (max-width: 480px) {
+    .prouct-card-container {
+        flex: 1 46%;
+    }
+
+    .product-card {
+      flex: 1 46%;
+    }
+    .product-cards {
+        flex: 1 46%;
+    }
+  }

@@ -25,16 +25,25 @@ const cards = [
 
 function Product() {
   return (
-    <div className='product-cards'>
-      <div className='prouct-card-container'>
-        {cards.map((card, index) => (
-          <Link key={index} to={card.route} className='product-card'>
-            <img src={card.Image} alt={card.name} />
-            <p>{card.name}</p>
-          </Link>
-        ))}
+    <div className="cube-container">
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
+      {/* Add more cube divs as needed */}
+      <div className='product-cards'>
+        <div className='prouct-card-container'>
+          {cards.map((card, index) => (
+            <Link key={index} to={card.route} className='product-card'>
+              <img src={card.Image} alt={card.name} />
+              <p>{card.name}</p>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
+    
   );
 }
 

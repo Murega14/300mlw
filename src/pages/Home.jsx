@@ -8,6 +8,8 @@ import tusker from '../components/assets/tusker.jpg';
 import cmorg from '../components/assets/captainmorgan750ml.jpg';
 import jameson from '../components/assets/jameson.jpg';
 import smirnoff from '../components/assets/smirnoff.jpg';
+import Ginsellers from './Ginsellers';
+import Whiskeysellers from './Whiskeysellers';
 
 const Home = () => {
   const [cart, setCart] = useState([]);
@@ -16,7 +18,7 @@ const Home = () => {
     { Image: jameson, name: 'Jameson 750ml', price: 'Ksh 2,700', id: '1' },
     { Image: smirnoff, name: 'Smirnoff 750ml', price: 'Ksh 2,500', id: '2' },
     { Image: gilbeys, name: 'Gilbeys Gin 750ml', price: 'Ksh 1,300', id: '3' },
-    { Image: ko, name: 'Kenyan Originals Gin 750ml', price: 'Ksh 2,500', id: '4' },
+    { Image: ko, name: 'KO Gin 750ml', price: 'Ksh 2,500', id: '4' },
     { Image: whitecap, name: 'White Cap Lager 500ml', price: 'Ksh 250', id: '5' },
     { Image: tusker, name: 'Tusker Lager 500ml', price: 'Ksh 250', id: '6' },
     { Image: cmorg, name: 'Captain Morgan 750ml', price: 'Ksh 1,000', id: '7' },
@@ -37,12 +39,29 @@ const Home = () => {
   };
 
   return (
-    <div className='header'>
-      <h1>Best Sellers</h1>
-      <Hero cards={cards} handleClick={handleClick} handleChange={handleChange} />
-
-      <h3>Contact Us</h3>
+    <div className='home'>
+      <div className="cube-container">
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className='header'>
+        <h1>Best Sellers</h1>
+        <Hero cards={cards} handleClick={handleClick} handleChange={handleChange} />
+        <h2>Gin Best Sellers</h2>
+        <Ginsellers handleClick={handleClick} handleChange={handleChange} />
+        <h3>Whiskey Best Sellers</h3>
+        <Whiskeysellers handleClick={handleClick} handleChange={handleChange} />
     </div>
+    </div>
+    </div>
+    
   );
 };
 

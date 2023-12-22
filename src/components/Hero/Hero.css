@@ -38,7 +38,7 @@
     overflow-x: hidden; /* Use 'auto' or 'scroll' for horizontal overflow */
     overflow-y: hidden;
     background: white;
-    float: left;
+    justify-content: space-evenly;
     box-sizing: border-box;
     text-align: center;
     border-radius: 20px;

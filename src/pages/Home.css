@@ -1,16 +1,113 @@
-.header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: whitesmoke;
-    margin-left: 0;
-    margin-right: 0;
-   }
-   
-   .header h1 {
-    text-align: start;
-   }
-   
-   .header h3 {
-    text-align: justify;
-   }
+.home {
+    background-color: rgba(255, 255, 255, 0.5);
+    position: relative;
+}
+    /* Cube animation styles */
+    .cube-container {
+        position: relative;
+        height: 100px; /* Adjust the height as needed */
+    }
+    
+    .cube {
+        position: absolute;
+        top: 50%; /* Adjust vertical position */
+        left: 50%; /* Adjust horizontal position */
+        width: 10px;
+        height: 10px;
+        border: solid 1px yellowgreen;
+        transform-origin: top left;
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        animation: cube 12s ease-in forwards infinite;
+    }
+    
+    /* Rest of the animation styles (nth-child rules and keyframes) */
+    .cube:nth-child(2n) {
+        border-color: yellowgreen;
+    }
+    
+    .cube:nth-child(2) {
+        animation-delay: 2s;
+        left: 25vw;
+        top: 40vh;
+    }
+    
+    .cube:nth-child(3) {
+        animation-delay: 4s;
+        left: 5vw;
+        top: 50vh;
+    }
+    
+    .cube:nth-child(4) {
+        animation-delay: 6s;
+        left: 90vw;
+        top: 10vh;
+    }
+    
+    .cube:nth-child(5) {
+        animation-delay: 8s;
+        left: 10vw;
+        top: 85vh;
+    }
+    
+    .cube:nth-child(6) {
+        animation-delay: 9s;
+        left: 80vw;
+        top: 80vh;
+    }
+
+    .cube:nth-child(7) {
+        animation-delay: 8s;
+        left: 70vw;
+        top: 110vh;
+    }
+
+    .cube:nth-child(8) {
+        animation-delay: 6s;
+        left: 50vw;
+        top: 100vh;
+    }
+
+    .cube:nth-child(9) {
+        animation-delay: 5s;
+        left: 10vw;
+        top: 95vh;
+    }
+    
+    @keyframes cube {
+        from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+        }
+        to {
+        transform: scale(20) rotate(760deg) translate(-50%, -50%);
+        opacity: 0;
+        }
+    }
+  
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: whitesmoke;
+        margin-left: 0;
+        margin-right: 0;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .header h1 {
+        text-align: start;
+    }
+    
+    .header h3 {
+        text-align: justify;
+    }
+    
+@media (max-width: 480px) {
+    .home {
+        flex: 1 46%;
+    }
+    .cube {
+        flex: 1 46%;
+    }
+}
