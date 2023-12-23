@@ -1,6 +1,6 @@
 import React from 'react'
 import './main.css'
-import jameson from '../components/assets/jameson.jpg';
+import jameson from '../components/assets/jameson.png';
 import jd from '../components/assets/jd750ml.jpg';
 import redlabel from '../components/assets/redlabel.jpg';
 import blacklabel from '../components/assets/blacklabel.jpg';

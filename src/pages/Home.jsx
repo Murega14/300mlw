@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './Home.css';
 import Hero from '../components/Hero/Hero';
-import gilbeys from '../components/assets/gilbeysgin750ml.jpeg';
-import ko from '../components/assets/ko750ml.jpeg';
-import whitecap from '../components/assets/whitecap.jpg';
-import tusker from '../components/assets/tusker.jpg';
-import cmorg from '../components/assets/captainmorgan750ml.jpg';
-import jameson from '../components/assets/jameson.jpg';
+import gilbeys from '../components/assets/gilbeysgin750ml.png';
+import ko from '../components/assets/ko750ml.png';
+import whitecap from '../components/assets/whitecap.png';
+import tusker from '../components/assets/tusker.png';
+import cmorg from '../components/assets/captainmorgan.png';
+import jameson from '../components/assets/jameson.png';
 import smirnoff from '../components/assets/smirnoff.jpg';
 import Ginsellers from './Ginsellers';
 import Whiskeysellers from './Whiskeysellers';

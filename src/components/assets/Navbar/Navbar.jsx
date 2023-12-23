@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import { ShoppingCartIcon } from '@heroicons/react/outline'; // Import the shopping cart icon from Heroicons
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-import logo from '../singleton.jpg';
-import applogo from '../applogo.jpg';
+import applogo from '../applogo.png';
+import logo from '../bg.png'
 
 const Navbar = () => {
 
@@ -13,7 +13,7 @@ const Navbar = () => {
     <>
     <nav className='navbar'>
       <div className='navbar-logo'>
-        <img src={applogo} />
+        <img src={applogo} alt='alt'/>
         <p>300 ML</p>
       </div>
       <ul className='nav-menu'>
@@ -40,13 +40,10 @@ const Navbar = () => {
       <p>
         Get Affordable drinks and have them delivered straight to your doorstep. Chaser pia ziko.
       </p>
+      <img src={logo} alt='alt'/>
       <a href='/product'>Shop Now</a>
     </div>
-  </>
-  
-   
-    
-    
+  </>   
   );
 };
 

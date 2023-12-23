@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Product.css';
-import gin from '../components/assets/gin.jpg';
-import whiskey from '../components/assets/whiskey.jpg';
-import vodka from '../components/assets/vodka.jpg';
-import beer from '../components/assets/logo.jpg';
-import wine from '../components/assets/wine.jpg';
+import gin from '../components/assets/gin2.png';
+import whiskey from '../components/assets/whiskey.png';
+import vodka from '../components/assets/vodka.png';
+import beer from '../components/assets/bg.png';
+import wine from '../components/assets/wine.png';
 import rum from '../components/assets/rum.png';
 import tequila from '../components/assets/tequila.png';
 import mixers from '../components/assets/mixers.png';
-import cigs from '../components/assets/cigs.jpg';
+import cigs from '../components/assets/cigs.png';
 
 const cards = [
   { Image: gin, name: 'Shop Gin', route: '/gin' },

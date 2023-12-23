@@ -1,8 +1,8 @@
 import React from 'react';
-import gilbeys from '../components/assets/gilbeysgin750ml.jpeg';
-import ko from '../components/assets/ko750ml.jpeg';
-import chrome from '../components/assets/chromegin750ml.jpeg';
-import best from '../components/assets/bestgin750ml.jpeg'
+import gilbeys from '../components/assets/gilbeysgin750ml.png';
+import ko from '../components/assets/ko750ml.png';
+import chrome from '../components/assets/chromegin750ml.png';
+import best from '../components/assets/bestgin750ml.png'
 
 
 const cards = [
