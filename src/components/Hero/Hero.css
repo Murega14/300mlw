@@ -3,14 +3,14 @@
     flex-wrap: wrap;
     overflow: hidden;
     position: relative;
-    background: white;
+    background: #f7efef;
     justify-content: center;
     align-items: center;
     margin: 50px 0;
   }
   
   .arrow {
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0);
     border: none;
     color: #333;
     cursor: pointer;
@@ -37,7 +37,7 @@
     transition: transform .4s;
     overflow-x: hidden; /* Use 'auto' or 'scroll' for horizontal overflow */
     overflow-y: hidden;
-    background: white;
+    background: #f9f9f98d;
     justify-content: space-evenly;
     box-sizing: border-box;
     text-align: center;
@@ -49,12 +49,16 @@
 
   
   .card-item {
-    background: white;
+    background: #fbfbfb;
     margin: 20px;  /* Added some margin for card separation */
   }
 
+  .card-item p{
+    background: #fbf9f9;
+  }
+
   .card-item:hover{
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16),
+    box-shadow: 0 3px 6px rgba(14, 228, 128, 0.16),
     0 3px 6px rgba(0,0,0,0.23);
     transform: translate(0px, -8px);
   }
@@ -64,7 +68,7 @@
     border: 1px solid #ddd;
     padding: 8px 16px;
     border-radius: 4px;
-    background-color: yellowgreen;
+    background-color: rgb(50, 120, 205);
     cursor: pointer;
     text-align: center;
     font-size: 14px;

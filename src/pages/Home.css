@@ -1,5 +1,5 @@
 .home {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #f7efef;
     position: relative;
 }
     /* Cube animation styles */
@@ -88,7 +88,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        background-color: whitesmoke;
+        background: #f7efef;
         margin-left: 0;
         margin-right: 0;
         margin: 0;

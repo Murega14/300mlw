@@ -29,7 +29,7 @@
 
 /* Rest of the animation styles (nth-child rules and keyframes) */
 .cube:nth-child(2n) {
-  border-color: white;
+  border-color: rgb(35, 8, 238);
 }
 
 .cube:nth-child(2) {
@@ -63,9 +63,9 @@
 }
 
 .cube:nth-child(7) {
-  animation-delay: 8s;
+  animation-delay: 1s;
   left: 70vw;
-  top: 110vh;
+  top: 50vh;
 }
 
 .cube:nth-child(8) {
@@ -96,7 +96,7 @@
   margin-bottom: auto;
   align-items: center;
   text-align: center;
-   color: yellow;
+   color: rgba(102, 9, 242, 0.972);
    text-decoration: wavy;
    background-color: #f7efef;
   
@@ -119,7 +119,7 @@
 .card:has(img) {
   /* Styles for cards that contain an img element */
   position: relative;
-  background-color: yellow;
+  background-color: #f7efef;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -139,12 +139,12 @@
 .card h3 {
   margin-bottom: 10px;
   font-size: 1.5rem;
-  color: #333;
+  color: #e8d208a1;
 }
 
 .card p {
   margin-bottom: 20px;
-  color: #555;
+  color: #99eb0be3;
 }
 
 .card-button {
@@ -166,6 +166,6 @@
 .card-button button {
   border: none;
   background-color: transparent;
-  color: teal;
+  color: rgb(212, 106, 143);
   font-weight: bolder;
 }

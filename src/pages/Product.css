@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    background: #f7efef;
 }
 
 .product-cards {
@@ -8,7 +9,7 @@
     justify-content: center;
     flex-wrap: wrap;
     padding: 16px;
-    background-color: azure;
+    background-color: #f7efef;
     text-decoration: solid;
     text-align: center;
    }
@@ -17,11 +18,11 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    background-color: azure;
+    background-color: #f7efef;
    }
    
    .product-card {
-    background: azure;
+    background: #f7efef;
     margin: 20px;
     text-decoration: none;
     flex: 1 16%;
