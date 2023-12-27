@@ -1,7 +1,7 @@
 import React from 'react'
 import './main.css'
-import whitecap from '../components/assets/whitecap.jpg'
-import tusker from '../components/assets/tusker.jpg'
+import whitecap from '../components/assets/whitecap.png'
+import tusker from '../components/assets/tusker.png'
 
 const cards = [
     { image: whitecap, name: 'White Cap Lager 500ml', price: 'Ksh 250', id: '5' },

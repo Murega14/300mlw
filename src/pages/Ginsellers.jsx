@@ -3,8 +3,8 @@ import gilbeys from '../components/assets/gilbeysgin750ml.png';
 import ko from '../components/assets/ko750ml.png';
 import chrome from '../components/assets/chromegin750ml.png';
 import best from '../components/assets/bestgin750ml.png';
-import gordonspink from '../components/assets/gordonspink.jpg';
-import tanql from '../components/assets/tanqueray1l.jpg';
+import gordonspink from '../components/assets/gordonspink.png';
+import tanql from '../components/assets/tanqueray1l.png';
 
 import 'swiper/swiper-bundle.css';
 

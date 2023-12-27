@@ -13,6 +13,11 @@
     text-decoration: solid;
     text-align: center;
    }
+
+.product-cards h4{
+    font-size: xx-large;
+    font-weight: bold;
+}
    
    .prouct-card-container {
     display: flex;

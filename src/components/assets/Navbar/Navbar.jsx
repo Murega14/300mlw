@@ -14,7 +14,7 @@ const Navbar = () => {
     <nav className='navbar'>
       <div className='navbar-logo'>
         <img src={applogo} alt='alt'/>
-        <p>300 ML</p>
+        <p>300ML</p>
       </div>
       <ul className='nav-menu'>
         <li onClick={() => { setMenu("home") }}>
@@ -41,7 +41,9 @@ const Navbar = () => {
         Get Affordable drinks and have them delivered straight to your doorstep. Chaser pia ziko.
       </p>
       <img src={logo} alt='alt'/>
-      <a href='/product'>Shop Now</a>
+      <div className="text-box-text">
+        <button>Shop Now</button>
+      </div>
     </div>
   </>   
   );

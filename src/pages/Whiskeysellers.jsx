@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react';
 import jameson from '../components/assets/jameson.png';
-import jd from '../components/assets/jd750ml.jpg';
-import redlabel from '../components/assets/redlabel.jpg';
-import blacklabel from '../components/assets/blacklabel.jpg';
-import martell from '../components/assets/martell.jpg';
-import allseasons from '../components/assets/allseasons.jpg';
+import jd from '../components/assets/jd750ml.png';
+import redlabel from '../components/assets/redlabel.png';
+import blacklabel from '../components/assets/blacklabel.png';
+import martell from '../components/assets/martell.png';
+import allseasons from '../components/assets/allseasons.png';
 import jimbeam from '../components/assets/jimbeam.jpg'
-import singleton from '../components/assets/singleton.jpg'
+import singleton from '../components/assets/singleton.png'
 
 
 const cards = [
