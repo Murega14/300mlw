@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Product.css';
 import Hero from '../components/Hero/Hero';
-import Ginsellers from '../pages/Ginsellers';
-import Whiskeysellers from '../pages/Whiskeysellers';
 import gin from '../components/assets/gin2.png';
 import whiskey from '../components/assets/whiskey.png';
 import vodka from '../components/assets/vodka.png';
@@ -36,13 +34,6 @@ function Product({handleClick, handleChange}) {
       <div className="cube"></div>
       {/* Add more cube divs as needed */}
 
-      <h1>Best Sellers</h1>
-        <Hero cards={cards} handleClick={handleClick} handleChange={handleChange} />
-        <h2>Gin Best Sellers</h2>
-        <Ginsellers handleClick={handleClick} handleChange={handleChange} />
-        <h3>Whiskey Best Sellers</h3>
-        <Whiskeysellers handleClick={handleClick} handleChange={handleChange} />
-
       <div className='product-cards'>
         <h4>Shop</h4>
         <div className='prouct-card-container'>
@@ -54,6 +45,7 @@ function Product({handleClick, handleChange}) {
           ))}
         </div>
       </div>
+
     </div>
     
   );

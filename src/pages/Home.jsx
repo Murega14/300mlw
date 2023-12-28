@@ -1,46 +1,46 @@
 import React, { useState } from 'react';
 import './Home.css';
-import Hero from '../components/Hero/Hero';
-import Ginsellers from './Ginsellers';
-import Whiskeysellers from './Whiskeysellers';
+import Hero from '../components/Hero/Hero'
+import Ginsellers from '../pages/Ginsellers';
+import Whiskeysellers from '../pages/Whiskeysellers';
+import { Link } from 'react-router-dom';
 
-const Home = () => {
-  const [cart, setCart] = useState([]);
+import logo from '../components/assets/bg.png'
 
-  
-  const handleClick = (card) => {
-    if (cart.findIndex((cartItem) => cartItem.id === card.id) === -1) {
-      setCart([...cart, { ...card, amount: 1 }]);
-    }
-  };
+const Home = ({cards, handleChange, handleClick}) => {
 
-  const handleChange = (card, d) => {
-    const updatedCart = cart.map((cartItem) =>
-      cartItem.id === card.id ? { ...cartItem, amount: cartItem.amount + d } : cartItem
-    );
-    setCart(updatedCart.filter((cartItem) => cartItem.amount > 0));
-  };
-
-  return (
+ return (
     <div className='home'>
-      <div className="cube-container">
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className='header'>
-       
-    </div>
-    </div>
-    </div>
-    
-  );
+
+        <div className='landing'>
+        <div className='text-box'>
+          <h1>Mapema ndo Best!!</h1>
+          <p>
+            Get Affordable drinks and have them delivered straight to your doorstep. Chaser pia ziko.
+          </p>
+          <img src={logo} alt='alt'/>
+          <div className="text-box-text">
+            <button>Shop Now</button>
+          </div>
+        </div>
+      </div>
+      <div className='content'>
+        <header className='content-header'>
+          <h3 className="App-title">
+            {/* Add the animation here */}
+            <span className="animated-title">Best Sellers</span>
+          </h3>
+        </header>
+        <Hero cards={cards} handleClick={handleClick} handleChange={handleChange} />
+        <h3>Gin Best Sellers</h3>
+        <Ginsellers handleClick={handleClick} handleChange={handleChange} />
+        <h4>Whiskey Best Sellers</h4>
+        <Whiskeysellers handleClick={handleClick} handleChange={handleChange} />
+      </div>
+      </div>
+      
+  
+ );
 };
 
 export default Home;

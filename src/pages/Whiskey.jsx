@@ -1,5 +1,5 @@
 import React from 'react'
-import './main.css'
+import '../pages/styles/Whiskey.css'
 import jameson from '../components/assets/jameson.png';
 import jd from '../components/assets/jd750ml.png';
 import redlabel from '../components/assets/redlabel.png';
@@ -10,7 +10,7 @@ import jimbeam from '../components/assets/jimbeam.jpg';
 import singleton from '../components/assets/singleton.png';
 
 
-const cards = [   
+const products = [   
   { image: jameson, name: 'Jameson 750ml', price: 'Ksh 2,700', id: '1' },
   {image: jd, name: 'Jack Daniels 750ML', price: 'Ksh 3,000', id: '34' },
   { image: martell, name: "Martell 750ml", price: 'Ksh 4,000', id: '12' },
@@ -22,37 +22,61 @@ const cards = [
 ]
 
 function Whiskey() {
-  return (
-    <div className='page-header'>
-    <div className="cube-container">
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className='header'></div>
-    <h1>Whiskeys</h1>
-    <div className='container'>
-      {cards && cards.map((card) => (
-        <div key={card.id} className='card'>
-          <img src={card.image} alt={card.name} />
-          <h3>{card.name}</h3>
-          <p>{card.price}</p>
-        <div className='card-button'>
-          <button>Buy</button>
-        </div>
-        </div>
-        ))}
-    </div>
-    </div>
-    </div>
-  )
 
-}
+  const [activePreview, setActivePreview] = React.useState(null);
+
+  const handleProductClick = (productName) => {
+    setActivePreview(productName);
+  };
+
+  const handleCloseClick = () => {
+    setActivePreview(null);
+  };
+
+
+  return (
+    <div className='container'>
+      {/* Products */}
+      <div className='products-container'>
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className='product'
+            data-name={`p-${product.id}`}
+            onClick={() => handleProductClick(`p-${product.id}`)}
+          >
+            {/* Render product details here */}
+            {/* Example: */}
+            <img src={product.image} alt={product.name} />
+            <h3>{product.name}</h3>
+            <p>{product.price}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Preview */}
+      <div className='products-preview' style={{ display: activePreview ? 'flex' : 'none' }}>
+  {products.map((product) => (
+    <div
+      key={product.id}
+      className={`preview ${activePreview === `p-${product.id}` ? 'active' : ''}`}
+      data-target={`p-${product.id}`}
+    >
+  
+      <i className='fas fa-times' onClick={handleCloseClick}></i>
+      <img src={product.image} alt={product.name} />
+      <h3>{product.name}</h3>
+      <div className='price'>{product.price}</div>
+      <div className='buttons'>
+        <a href='#' className='buy'>buy now</a>
+        <a href='#' className='cart'>add to cart</a>
+      </div>
+    </div>
+  ))}
+</div>
+
+    </div>
+  );
+};
 
 export default Whiskey

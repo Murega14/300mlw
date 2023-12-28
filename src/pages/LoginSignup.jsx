@@ -1,49 +1,67 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './LoginSignup.css';
 
-const LoginSignup = () => {
+class LoginRegister extends Component {
+ constructor(props) {
+    super(props);
+    this.state = {
+      isLogin: true,
+      formError: false,
+    };
+ }
 
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+ handleCheckboxChange = (e) => {
+    this.setState({ isLogin: e.target.checked });
+ };
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+ validateForm = (email, password) => {
+    if (email.trim() === '' || password.trim() === '') {
+      this.setState({ formError: true });
+      return false;
+    }
+    this.setState({ formError: false });
+    return true;
+ };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+ handleFormSubmit = (e) => {
     e.preventDefault();
-    // Use the email and password state variables here for form submission or validation
-  };
+    const email = e.target.email.value;
+    const password = e.target.pswd.value;
+    if (this.validateForm(email, password)) {
+      // Submit the form
+    }
+ };
 
-  return (
-    <div className="main">
-      <input type="checkbox" id="chk" aria-hidden="true" />
+ render() {
+    const { isLogin, formError } = this.state;
 
-      <div className="login">
-        <form className="form">
-          <label htmlFor="chk" aria-hidden="true">Log in</label>
-          <input className="input" type="email" name="email" placeholder="Email" required />
-          <input className="input" type="password" name="pswd" placeholder="Password" required />
-          <button>Log in</button>
-        </form>
+    return (
+      <div className="main">
+        <input id="chk" type="checkbox" onChange={this.handleCheckboxChange} />
+
+        <div id="login" className={isLogin ? 'login' : 'login active'}>
+          <form className="form" onSubmit={this.handleFormSubmit}>
+            <label htmlFor="chk">Log in</label>
+            <input className="input" type="email" name="email" placeholder="Email" required />
+            <input className="input" type="password" name="pswd" placeholder="Password" required />
+            {formError && <p>Error: Please fill in all the fields.</p>}
+            <button>Log in</button>
+          </form>
+        </div>
+
+        <div id="register" className={isLogin ? 'register' : 'register active'}>
+          <form className="form" onSubmit={this.handleFormSubmit}>
+            <label htmlFor="chk">Register</label>
+            <input className="input" type="text" name="txt" placeholder="Username" required />
+            <input className="input" type="email" name="email" placeholder="Email" required />
+            <input className="input" type="password" name="pswd" placeholder="Password" required />
+            {formError && <p>Error: Please fill in all the fields.</p>}
+            <button>Register</button>
+          </form>
+        </div>
       </div>
+    );
+ }
+}
 
-      <div className="register">
-        <form className="form">
-          <label htmlFor="chk" aria-hidden="true">Register</label>
-          <input className="input" type="text" name="txt" placeholder="Username" required />
-          <input className="input" type="email" name="email" placeholder="Email" required />
-          <input className="input" type="password" name="pswd" placeholder="Password" required />
-          <button>Register</button>
-        </form>
-      </div>
-    </div>
-  );
-
-};
-
-export default LoginSignup;
+export default LoginRegister;

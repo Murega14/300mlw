@@ -25,6 +25,7 @@ function Hero({ handleClick }) {
   const cardsContainerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const cardWidth = 50;
+  const [activePreview, setActivePreview] = useState(null);
 
   const scrollLeft = () => {
     if (currentIndex > 0) {
@@ -46,27 +47,54 @@ function Hero({ handleClick }) {
     }
   };
 
+  const handleProductClick = (productName) => {
+    setActivePreview(productName);
+  };
+
+  const handleCloseClick = () => {
+    setActivePreview(null);
+  };
+
   return (
     <div className="horizontal-scrolling-cards">
-      <button onClick={scrollLeft} className="arrow arrow-left">
-        <img src="https://img.icons8.com/ios-filled/50/000000/left-squared.png" alt="Left Arrow" />
-      </button>
-      <div className="cards-container" ref={cardsContainerRef}>
-        {cards &&
-          cards.map((card) => (
-            <div key={card.id} className="card-item">
-              <img src={card.Image} alt={card.name} />
-              <p>{card.name}</p>
-              <p>{card.price}</p>
-              <div className="cardbutton">
-                <button onClick={() => handleClick(card)}>Buy</button>
-              </div>
-            </div>
-          ))}
+      <div className='products-container'>
+        {cards && cards.map((product) => (
+          <div
+            key={product.id}
+            className='product'
+            data-name={`p-${product.id}`}
+            onClick={() => handleProductClick(`p-${product.id}`)}
+          >
+            {/* Render product details here */}
+            {/* Example: */}
+            <img src={product.Image} alt={product.name} />
+            <h3>{product.name}</h3>
+            <p>{product.price}</p>
+          </div>
+        ))}
       </div>
-      <button onClick={scrollRight} className="arrow arrow-right">
-        <img src="https://img.icons8.com/ios-filled/50/000000/right-squared.png" alt="Right Arrow" />
-      </button>
+
+      {/* Preview */}
+      <div className='products-preview' style={{ display: activePreview ? 'flex' : 'none' }}>
+  {cards && cards.map((product) => (
+    <div
+      key={product.id}
+      className={`preview ${activePreview === `p-${product.id}` ? 'active' : ''}`}
+      data-target={`p-${product.id}`}
+    >
+  
+      <i className='fas fa-times' onClick={handleCloseClick}></i>
+      <img src={product.Image} alt={product.name} />
+      <h3>{product.name}</h3>
+      <div className='price'>{product.price}</div>
+      <div className='buttons'>
+        <a href='#' className='buy'>buy now</a>
+        <a href='#' className='cart'>add to cart</a>
+      </div>
+    </div>
+  ))}
+</div>
+      
     </div>
   );
 }

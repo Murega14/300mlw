@@ -1,17 +1,36 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { ShoppingCartIcon } from '@heroicons/react/outline'; // Import the shopping cart icon from Heroicons
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 import applogo from '../applogo.png';
-import logo from '../bg.png'
 
 const Navbar = () => {
 
     const [menu, setMenu] = useState("home");
+    const [isSticky, setIsSticky] = useState(false);
+
+    useEffect(() => {
+      const navbar = document.getElementById('navbar');
+      const stickyOffset = navbar.offsetTop;
+  
+      const handleScroll = () => {
+        if (window.pageYOffset >= stickyOffset) {
+          setIsSticky(true);
+        } else {
+          setIsSticky(false);
+        }
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
     
   return (
     <>
-    <nav className='navbar'>
+    <nav id='navbar' className={isSticky ? 'navbar sticky' : 'navbar'}>
       <div className='navbar-logo'>
         <img src={applogo} alt='alt'/>
         <p>300ML</p>
@@ -35,16 +54,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-    <div className='text-box'>
-      <h1>Mapema ndo Best!!</h1>
-      <p>
-        Get Affordable drinks and have them delivered straight to your doorstep. Chaser pia ziko.
-      </p>
-      <img src={logo} alt='alt'/>
-      <div className="text-box-text">
-        <button>Shop Now</button>
-      </div>
-    </div>
+   
   </>   
   );
 };
