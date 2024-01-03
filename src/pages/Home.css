@@ -2,7 +2,7 @@
     position: relative;
     height: 200rem;
     padding: 20px;
-    background: #242423;
+    background: #000000;
     
 }
 
@@ -17,7 +17,7 @@
     align-items: center;
     padding: 2px 40;
     text-align: start;
-    background: #2d2d2c;
+    background: #000000;
     margin-top: 0;
     height: 70vh;
    }
@@ -26,31 +26,32 @@
     font-size: 68px;
     margin-bottom: 20px;
     margin-top: 0;
-    background: #494941;
-    color: #0cf5a4;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Initial box shadow */
+    background: #000000;
+    color: aliceblue;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Initial box shadow */
     animation: glow 1s ease-in-out infinite alternate;
-   
+   float: left;
 }
    
    .text-box p {
     font-size: 24px;
-    background: #2d2d2c;
-    color: #0dfb886c;
+    background: #000000;
+    color: aliceblue;
     animation: glow 1s ease-in-out infinite alternate;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    float: left;
     
    }
    
    .text-box a {
-    background-color: #5c91f1;
+    background-color: #f7efef;
     border: none;
     padding: 10px 20px;
     color: #ffea05;
     text-decoration: none;
     cursor: pointer;
     font-size: 18px;
+    float: left;
    }
 
    .text-box a:hover {
@@ -59,9 +60,9 @@
 }
    
 .text-box img {
-    border-radius: 15%;
-    background: #2d2d2c;
-    height: 100%;
+  background: #000000;
+  right: 160px;
+  float: right;
   }
   
   @keyframes glow {
@@ -110,18 +111,47 @@
 
 /* CSS */
 .content-header {
-    background-color: #2d2d2c;
-    padding: 20px;
+    background-color: #F4DFC8;
+    padding: 40px;
     text-align: center;
     margin: 0;
+    box-sizing: border-box;
   }
   
   .App-title {
     margin: 0;
     font-size: 24px;
     font-weight: bold;
-    color: #333;
-    background: #2d2d2c;
+    color: #0a74ff;
+    background: #F4DFC8;
     box-shadow: none;
   }
   
+  .gin-sellers {
+    box-sizing: border-box;
+    background: #F4EAE0;
+    width: 100%;
+  
+  }
+
+  .gin-sellers .App-title {
+    background: #F4EAE0;
+  }
+
+  .gin-sellers .content-header {
+    background: #F4EAE0;
+  }
+
+  .whiskey-sellers {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .whiskey-sellers .App-title{
+    background: #FAF6F0;
+    color: #000000;
+  }
+
+  .whiskey-sellers .content-header {
+    background: #FAF6F0;
+  }

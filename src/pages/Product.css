@@ -1,7 +1,8 @@
 * {
     margin: 0;
     padding: 0;
-    background: #f7efef;
+    background: #F4EAE0;
+    box-sizing: border-box;
 }
 
 .product-cards {
@@ -9,7 +10,7 @@
     justify-content: center;
     flex-wrap: wrap;
     padding: 16px;
-    background-color: #f7efef;
+    background-color: #F4EAE0;
     text-decoration: solid;
     text-align: center;
    }
@@ -23,11 +24,11 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    background-color: #f7efef;
+    background-color: #F4EAE0;
    }
    
    .product-card {
-    background: #f7efef;
+    background: #F4EAE0;
     margin: 20px;
     text-decoration: none;
     flex: 1 16%;
@@ -44,6 +45,7 @@
     height: 300px;
     object-fit: cover;
     border: 14px;
+    background: #F4EAE0;
    }
 
    .product-card p{

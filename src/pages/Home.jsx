@@ -3,7 +3,7 @@ import './Home.css';
 import Hero from '../components/Hero/Hero'
 import Ginsellers from '../pages/Ginsellers';
 import Whiskeysellers from '../pages/Whiskeysellers';
-import { Link } from 'react-router-dom';
+import Product from '../pages/Product'
 
 import logo from '../components/assets/bg.png'
 
@@ -24,19 +24,35 @@ const Home = ({cards, handleChange, handleClick}) => {
           </div>
         </div>
       </div>
-      <div className='content'>
-        <header className='content-header'>
-          <h3 className="App-title">
-            {/* Add the animation here */}
-            <span className="animated-title">Best Sellers</span>
-          </h3>
-        </header>
-        <Hero cards={cards} handleClick={handleClick} handleChange={handleChange} />
-        <h3>Gin Best Sellers</h3>
-        <Ginsellers handleClick={handleClick} handleChange={handleChange} />
-        <h4>Whiskey Best Sellers</h4>
-        <Whiskeysellers handleClick={handleClick} handleChange={handleChange} />
-      </div>
+        <div className='content'>
+          <header className='content-header'>
+            <h3 className="App-title">
+              {/* Add the animation here */}
+              <span className="animated-title">Best Sellers</span>
+            </h3>
+            <Hero cards={cards} handleClick={handleClick} handleChange={handleChange} />
+          </header>
+          <div className='gin-sellers'>
+          <header className='content-header'>
+            <h3 className="App-title">
+              {/* Add the animation here */}
+              <span className="animated-title">Gin Best Sellers</span>
+            </h3>
+            <Ginsellers cards={cards} handleClick={handleClick} handleChange={handleChange} />
+          </header> 
+          </div>
+          <div className='whiskey-sellers'>
+          <header className='content-header'>
+            <h3 className="App-title">
+              {/* Add the animation here */}
+              <span className="animated-title">Whiskey Best Sellers</span>
+            </h3>
+            <Whiskeysellers cards={cards} handleClick={handleClick} handleChange={handleChange} />
+          </header> 
+          </div>
+          
+          <Product cards={cards} handleClick={handleClick} handleChange={handleChange} />
+        </div>
       </div>
       
   

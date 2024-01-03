@@ -22,30 +22,9 @@ const cards = [
 
 
 function Hero({ handleClick }) {
-  const cardsContainerRef = useRef(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const cardWidth = 50;
+
+  const [cart, setCart] = useState(null);
   const [activePreview, setActivePreview] = useState(null);
-
-  const scrollLeft = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
-      cardsContainerRef.current.scrollLeft -= cardWidth;
-    } else {
-      cardsContainerRef.current.scrollLeft = cardsContainerRef.current.scrollWidth;
-      setCurrentIndex(cards.length - 1);
-    }
-  };
-
-  const scrollRight = () => {
-    if (currentIndex < cards.length - 1) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-      cardsContainerRef.current.scrollLeft += cardWidth;
-    } else {
-      cardsContainerRef.current.scrollLeft = 0;
-      setCurrentIndex(0);
-    }
-  };
 
   const handleProductClick = (productName) => {
     setActivePreview(productName);
@@ -54,6 +33,23 @@ function Hero({ handleClick }) {
   const handleCloseClick = () => {
     setActivePreview(null);
   };
+
+  const handleAddToCart = (product) => {
+    const existingProduct = cart.find(item => item.id === product.id);
+    if (existingProduct) {
+      setCart(cart.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item));
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
+ };
+
+ const handleBuyNow = (product) => {
+    handleAddToCart(product);
+    alert('Item added to cart');
+ };
+
+ const activeProduct = cards.find((product) => `p-${product.id}` === activePreview);
+
 
   return (
     <div className="horizontal-scrolling-cards">
@@ -75,28 +71,23 @@ function Hero({ handleClick }) {
       </div>
 
       {/* Preview */}
-      <div className='products-preview' style={{ display: activePreview ? 'flex' : 'none' }}>
-  {cards && cards.map((product) => (
-    <div
-      key={product.id}
-      className={`preview ${activePreview === `p-${product.id}` ? 'active' : ''}`}
-      data-target={`p-${product.id}`}
-    >
-  
-      <i className='fas fa-times' onClick={handleCloseClick}></i>
-      <img src={product.Image} alt={product.name} />
-      <h3>{product.name}</h3>
-      <div className='price'>{product.price}</div>
-      <div className='buttons'>
-        <a href='#' className='buy'>buy now</a>
-        <a href='#' className='cart'>add to cart</a>
-      </div>
-    </div>
-  ))}
-</div>
-      
+      {activeProduct && (
+        <div className='products-preview'>
+          <div className={`preview ${activePreview ? 'active' : ''}`} data-target={activePreview}>
+            <i className='fas fa-times' onClick={handleCloseClick}></i>
+            <img src={activeProduct.Image} alt={activeProduct.name} />
+            <h3>{activeProduct.name}</h3>
+            <div className='price'>{activeProduct.price}</div>
+            <div className='buttons'>
+              <a href='/cart' className='buy' onClick={() => handleBuyNow(activeProduct)}>buy now</a>
+              <a href='/cart' className='cart' onClick={() => handleAddToCart(activeProduct)}>add to cart</a>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
+
 
 export default Hero;
