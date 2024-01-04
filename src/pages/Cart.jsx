@@ -4,39 +4,41 @@ const Cart = ({ cart, setCart, handleChange }) => {
   const [price, setPrice] = useState(0);
 
   const handleRemove = (id) => {
-    const arr = cart.filter((card) => card.id !== id);
+    const arr = cart.filter((item) => item.id !== id);
     setCart(arr);
   };
 
   useEffect(() => {
-    const handlePrice = () => {
-      let ans = 0;
+    const calculatePrice = () => {
+      let totalPrice = 0;
       if (cart && cart.length > 0) {
-        cart.forEach((card) => (ans += card.amount * parseFloat(card.price.replace('Ksh ', ''))));
+        cart.forEach((item) => {
+          totalPrice += item.quantity * parseFloat(item.price.replace('Ksh ', ''));
+        });
       }
-      setPrice(ans);
+      setPrice(totalPrice);
     };
 
-    handlePrice();
-  }, [cart]); // Run when cart changes
+    calculatePrice();
+  }, [cart]);
 
   return (
     <article>
       {cart && cart.length > 0 ? (
-        cart.map((card) => (
-          <div className="cart_box" key={card.id}>
+        cart.map((item) => (
+          <div className="cart_box" key={item.id}>
             <div className="cart_img">
-              <img src={card.Image} alt={card.name} />
-              <p>{card.name}</p>
+              <img src={item.Image} alt={item.name} />
+              <p>{item.name}</p>
             </div>
             <div>
-              <button onClick={() => handleChange(card, 1)}>+</button>
-              <button>{card.amount}</button>
-              <button onClick={() => handleChange(card, -1)}>-</button>
+              <button onClick={() => handleChange(item, 1)}>+</button>
+              <button>{item.quantity}</button>
+              <button onClick={() => handleChange(item, -1)}>-</button>
             </div>
             <div>
-              <span>Ksh {card.price}</span>
-              <button onClick={() => handleRemove(card.id)}>Remove</button>
+              <span>Ksh {parseFloat(item.price.replace('Ksh ', '')) * item.quantity}</span>
+              <button onClick={() => handleRemove(item.id)}>Remove</button>
             </div>
           </div>
         ))

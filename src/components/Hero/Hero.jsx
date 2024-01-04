@@ -7,6 +7,7 @@ import tusker from '../assets/tusker.png';
 import cmorg from '../assets/captainmorgan.png';
 import jameson from '../assets/jameson.png';
 import smirnoff from '../assets/sminorff.png';
+import Cart from '../../pages/Cart';
 
 
 const cards = [
@@ -21,9 +22,9 @@ const cards = [
 ];
 
 
-function Hero({ handleClick }) {
+function Hero({ handleClick, handleChange }) {
 
-  const [cart, setCart] = useState(null);
+  const [cart, setCart] = useState([]);
   const [activePreview, setActivePreview] = useState(null);
 
   const handleProductClick = (productName) => {
@@ -51,43 +52,44 @@ function Hero({ handleClick }) {
  const activeProduct = cards.find((product) => `p-${product.id}` === activePreview);
 
 
-  return (
-    <div className="horizontal-scrolling-cards">
-      <div className='products-container'>
-        {cards && cards.map((product) => (
-          <div
-            key={product.id}
-            className='product'
-            data-name={`p-${product.id}`}
-            onClick={() => handleProductClick(`p-${product.id}`)}
-          >
-            {/* Render product details here */}
-            {/* Example: */}
-            <img src={product.Image} alt={product.name} />
-            <h3>{product.name}</h3>
-            <p>{product.price}</p>
-          </div>
-        ))}
-      </div>
+ return (
+  <div className="horizontal-scrolling-cards">
+    <div className='products-container'>
+      {cards && cards.map((product) => (
+        <div
+          key={product.id}
+          className='product'
+          data-name={`p-${product.id}`}
+          onClick={() => handleProductClick(`p-${product.id}`)}
+        >
+          {/* Render product details here */}
+          {/* Example: */}
+          <img src={product.Image} alt={product.name} />
+          <h3>{product.name}</h3>
+          <p>{product.price}</p>
+        </div>
+      ))}
+    </div>
 
-      {/* Preview */}
-      {activeProduct && (
-        <div className='products-preview'>
-          <div className={`preview ${activePreview ? 'active' : ''}`} data-target={activePreview}>
-            <i className='fas fa-times' onClick={handleCloseClick}></i>
-            <img src={activeProduct.Image} alt={activeProduct.name} />
-            <h3>{activeProduct.name}</h3>
-            <div className='price'>{activeProduct.price}</div>
-            <div className='buttons'>
-              <a href='/cart' className='buy' onClick={() => handleBuyNow(activeProduct)}>buy now</a>
-              <a href='/cart' className='cart' onClick={() => handleAddToCart(activeProduct)}>add to cart</a>
-            </div>
+    {/* Preview */}
+    <div className='products-preview' style={{ display: activePreview ? 'flex' : 'none' }}>
+    {activeProduct && (
+      <div className='products-preview'>
+        <div className={`preview ${activePreview ? 'active' : ''}`} data-target={activePreview}>
+          <i className='fas fa-times' onClick={handleCloseClick}></i>
+          <img src={activeProduct.Image} alt={activeProduct.name} />
+          <h3>{activeProduct.name}</h3>
+          <div className='price'>{activeProduct.price}</div>
+          <div className='buttons'>
+            <a href='/cart' className='buy' onClick={() => handleBuyNow(activeProduct)}>buy now</a>
+            <a href='/cart' className='cart' onClick={() => handleAddToCart(activeProduct)}>add to cart</a>
           </div>
         </div>
-      )}
-    </div>
-  );
-}
-
+      </div>
+    )}
+  </div>
+  </div>
+);
+    }
 
 export default Hero;

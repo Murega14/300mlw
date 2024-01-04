@@ -18,7 +18,7 @@ const cards = [
     { image: best, name: 'Best Gin 750ml', price: 'Ksh 1,000', id: '6' }
 ]
 
-function Ginsellers({ handleClick }) {
+function Ginsellers({ handleClick, handleBuyNow, activeProduct}) {
   const cardsContainerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const cardWidth = 50;
@@ -85,7 +85,7 @@ function Ginsellers({ handleClick }) {
       <h3>{product.name}</h3>
       <div className='price'>{product.price}</div>
       <div className='buttons'>
-        <a href='#' className='buy'>buy now</a>
+        <a href='#' className='buy' onClick={() => handleBuyNow(activeProduct)}>buy now</a>
         <a href='#' className='cart'>add to cart</a>
       </div>
     </div>
