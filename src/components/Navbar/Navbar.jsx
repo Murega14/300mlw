@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { ShoppingCartIcon } from '@heroicons/react/outline'; // Import the shopping cart icon from Heroicons
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-import applogo from '../applogo.png';
+import applogo from '../assets/applogo.png';
 
 const Navbar = () => {
 

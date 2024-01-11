@@ -1,5 +1,3 @@
-
-    
 .text-box {
     display: flex;
     flex-direction: column;
@@ -95,53 +93,3 @@
   }
 }
 
-.animated-title {
-    animation: scale 1s infinite alternate;
-   }
-
-/* CSS */
-.content-header {
-    background-color: #F4DFC8;
-    padding: 40px;
-    text-align: center;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  .App-title {
-    margin: 0;
-    font-size: 24px;
-    font-weight: bold;
-    color: #0a74ff;
-    background: #F4DFC8;
-    box-shadow: none;
-  }
-  
-  .gin-sellers {
-    box-sizing: border-box;
-    background: #F4EAE0;
-    width: 100%;
-  
-  }
-
-  .gin-sellers .App-title {
-    background: #F4EAE0;
-  }
-
-  .gin-sellers .content-header {
-    background: #F4EAE0;
-  }
-
-  .whiskey-sellers {
-    box-sizing: border-box;
-    width: 100%;
-  }
-
-  .whiskey-sellers .App-title{
-    background: #FAF6F0;
-    color: #000000;
-  }
-
-  .whiskey-sellers .content-header {
-    background: #FAF6F0;
-  }

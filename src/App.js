@@ -1,8 +1,7 @@
-import React from 'react';
-import { Route, Routes} from 'react-router-dom';
-import 'swiper/swiper-bundle.css'
-import './App.css';
-import Navbar from './components/assets/Navbar/Navbar';
+import React, { Component } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import 'swiper/swiper-bundle.css';
+import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import LoginSignup from './pages/LoginSignup';
@@ -12,55 +11,53 @@ import Gin from './pages/Gin';
 import Whiskey from './pages/Whiskey';
 import Vodka from './pages/Vodka';
 import Beer from './pages/Beer';
+import { CartProvider } from './context/cart';
+
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // Log the error to an error reporting service
+    console.error(error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any fallback UI here
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children;
+  }
+}
 
 function App() {
-
-  const [cart, setCart] = React.useState([]);
-  const [setShow] = React.useState(true);
-
-  const handleClick = (cards) => {
-    const existingItem = cart.find((item) => item.id === cards.id);
-    if (existingItem) {
-      // If the item exists, update the quantity
-      setCart(
-        cart.map((item) =>
-          item.id === cards.id ? { ...item, amount: item.amount + 1 } : item
-        )
-      );
-    } else {
-      // Add the item to the cart
-      setCart([...cart, { ...cards, amount: 1 }]);
-    }
-  };
-
-  const handleChange = (cards, d) => {
-    // Adjust quantity or remove item from cart
-    if (d === 0) {
-      setCart(cart.filter((item) => item.id !== cards.id));
-    } else {
-      setCart(
-        cart.map((item) =>
-          item.id === cards.id ? { ...item, amount: item.amount + d } : item
-        )
-      );
-    }
-  };
-
   return (
-    <React.Fragment>
-      <Navbar setShow={setShow} size={cart.length} />
-     <Routes>
-        <Route path="/" element={<Home handleClick={handleClick} />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="/cart" element={<Cart cart={cart} handleChange={handleChange} setCart={setCart} />} />
-        <Route path="/login" element={<LoginSignup />} />
-        <Route path="/wine" element={<Wine />} />
-        <Route path="/gin" element={<Gin />} />
-        <Route path="/whiskey" element={<Whiskey />} />
-        <Route path="/vodka" element={<Vodka />} />
-        <Route path="/beer" element={<Beer />} />
-      </Routes>
-    </React.Fragment>
+    <ErrorBoundary>
+      <React.Fragment>
+        <CartProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/login" element={<LoginSignup />} />
+            <Route path="/wine" element={<Wine />} />
+            <Route path="/gin" element={<Gin />} />
+            <Route path="/whiskey" element={<Whiskey />} />
+            <Route path="/vodka" element={<Vodka />} />
+            <Route path="/beer" element={<Beer />} />
+          </Routes>
+        </CartProvider>
+      </React.Fragment>
+    </ErrorBoundary>
   );
 }
 

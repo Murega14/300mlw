@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Product.css';
-import Hero from '../components/Hero/Hero';
+import './styles/Product.css';
 import gin from '../components/assets/gin2.png';
 import whiskey from '../components/assets/whiskey.png';
 import vodka from '../components/assets/vodka.png';
@@ -26,16 +25,8 @@ const cards = [
 
 function Product({handleClick, handleChange}) {
   return (
-    <div className="cube-container">
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      {/* Add more cube divs as needed */}
-
       <div className='product-cards'>
-        <h4>Shop</h4>
+        
         <div className='prouct-card-container'>
           {cards.map((card, index) => (
             <Link key={index} to={card.route} className='product-card'>
@@ -46,7 +37,6 @@ function Product({handleClick, handleChange}) {
         </div>
       </div>
 
-    </div>
     
   );
 }

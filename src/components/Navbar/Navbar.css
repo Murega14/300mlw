@@ -1,10 +1,5 @@
 /* Add this CSS code to your Navbar.css file */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background: #000000;
-}
+
 nav {
   width: 100%;
   display: flex;
