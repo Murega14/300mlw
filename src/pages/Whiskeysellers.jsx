@@ -7,7 +7,7 @@ import martell from '../components/assets/martell.png';
 import allseasons from '../components/assets/allseasons.png';
 import jimbeam from '../components/assets/jimbeam.jpg'
 import singleton from '../components/assets/singleton.png'
-
+import './styles/Home.css'
 import Cart from '../pages/Cart';
 import { useContext } from 'react';
 import { CartContext } from '../context/cart';
@@ -73,17 +73,17 @@ function Whiskeysellers({ handleClick }) {
 
 
   return (
-    <div className="flex flex-row justify-center gap-8 px-4 sm:px-8 py-4 bg-gray-100 rounded-lg dark:bg-gray-900 overflow-x-auto">
+    <div className=" best-seller-content-header flex flex-row justify-center gap-10 px-4 sm:px-8 py-4 rounded-lg dark:bg-white-900 overflow-x-auto bg-white">
     {cards && cards.map((product) => (
-      <div key={product.id} className="product w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between">
-      <img src={product.image} alt={`Product: ${product.name}`} className="object-cover w-full h-64 rounded-t-lg" />
+      <div key={product.id} className="whiskey-product-card max-w-sm border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <img src={product.image} alt={`Product: ${product.name}`} className="object-cover w-full h-80 rounded-t-lg" />
          <div className="p-6">
-           <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-yellow">{product.name}</h5>
-           <p className="mt-2 text-gray-600">Ksh{product.price}</p>
+           <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-yellow-300">{product.name}</h5>
+           <p className="text-xl font-bold text-gray-900 dark:text-white">{product.price}</p>
          </div>
          <div className="p-6 border-t border-gray-200 dark:border-gray-700">
            {!cartItems || !cartItems.find(item => item.id === product.id) ? (
-             <button className="w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+             <button className="w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-small rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                onClick={() => {
                  addToCart(product);
                  notifyAddedToCart(product);

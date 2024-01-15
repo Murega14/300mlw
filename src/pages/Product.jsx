@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './styles/Product.css';
 import gin from '../components/assets/gin2.png';
 import whiskey from '../components/assets/whiskey.png';
 import vodka from '../components/assets/vodka.png';
@@ -23,21 +22,45 @@ const cards = [
   { Image: cigs, name: 'Shop Cigarettes', route: '/cigs' }
 ];
 
-function Product({handleClick, handleChange}) {
+function ShootingStars() {
+  useEffect(() => {
+    const numStars = 10;
+
+    for (let i = 0; i < numStars; i++) {
+      createShootingStar();
+    }
+
+    function createShootingStar() {
+      const star = document.createElement('div');
+      star.className = 'shooting-star';
+      star.style.left = `${Math.random() * window.innerWidth}px`;
+      star.style.animationDuration = `${Math.random() * 2 + 1}s`; // Vary animation duration
+      document.body.appendChild(star);
+    }
+  }, []);
+
+  return null;
+}
+
+function Product({ handleClick, handleChange }) {
   return (
-      <div className='product-cards'>
-        
-        <div className='prouct-card-container'>
+    <>
+      <ShootingStars />
+      <div className="shop-products">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {cards.map((card, index) => (
-            <Link key={index} to={card.route} className='product-card'>
-              <img src={card.Image} alt={card.name} />
-              <p>{card.name}</p>
+            <Link
+              key={index}
+              to={card.route}
+              className=" border border-gray-200 rounded-lg p-4 transition duration-300 transform hover:scale-105"
+            >
+              <img src={card.Image} alt={card.name} className="w-full h-80 object-cover mb-4" />
+              <p className="text-gray-800 text-lg font-semibold">{card.name}</p>
             </Link>
           ))}
         </div>
       </div>
-
-    
+    </>
   );
 }
 
