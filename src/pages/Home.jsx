@@ -25,7 +25,7 @@ const Home = ({ cards, handleChange, handleClick, notifyAddedToCart, addToCart, 
       <div className="text-box w-full text-center dark-bg-yellow-100">
         <h1 className="text-4xl md:text-6xl lg:text-10xl font-bold mb-4 pb-4 pt-6" data-aos="zoom-out">Mapema ndo Best!!</h1>
         <p className="text-lg md:text-xl mb-4">
-          Get Affordable drinks and have them delivered straight to your doorstep. Chaser pia ziko.
+          <span className='text-black-800 dark:text-black-800'>Get Affordable drinks</span> and have them delivered straight to your doorstep. Chaser pia ziko.
         </p>
         <Link to="/shop" className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
           Shop Now
@@ -34,7 +34,7 @@ const Home = ({ cards, handleChange, handleClick, notifyAddedToCart, addToCart, 
     </div>
 
     {/* Content Section */}
-    <div data-aos="zoom-in">
+    <div data-aos="zoom-out">
       {/* Best Sellers Section */}
       <header className="best-seller-content-header mb-0" data-aos="zoom-out">
         <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
@@ -49,7 +49,7 @@ const Home = ({ cards, handleChange, handleClick, notifyAddedToCart, addToCart, 
           <span className="text-blue-700">Gin Best Sellers</span>
         </h3>
         <Ginsellers cards={cards} handleClick={handleClick} handleChange={handleChange} />
-        <Link to="/gin" className="shop-link bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 inline-block">
+        <Link to="/gin" className="shop-link bg-blue-700 text-white font-bold py-2 px-4 rounded mt-0 mb-10 inline-block">
           Shop Gin
         </Link>
       </header>

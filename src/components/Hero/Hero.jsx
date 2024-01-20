@@ -81,10 +81,10 @@ function Hero() {
   return (
     <div className="contents">
       <ToastContainer />
-      <div className="best-seller-content-header flex flex-row justify-center gap-6 px-4 sm:px-8 py-0 md:py-12 rounded-lg overflow-x-auto relative">
+      <div className="best-seller-content-header flex flex-row justify-center gap-6 px-4 sm:px-8 py-0 md:py-12 rounded-lg overflow-x-auto relative border-solid">
       <div className="cards-container flex w-full overflow-x-auto">
         {/* Set a container for the product cards */}
-        <div className="product-cards-container flex space-x-4 rounded-full">
+        <div className="product-cards-container flex space-x-4 rounded-full solid">
           {isLoading ? (
             <div className="flex flex-row gap-2">
               <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce"></div>
