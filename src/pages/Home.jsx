@@ -3,7 +3,6 @@ import './styles/Home.css';
 import Hero from '../components/Hero/Hero';
 import Ginsellers from '../pages/Ginsellers';
 import Whiskeysellers from '../pages/Whiskeysellers';
-import Product from '../pages/Product';
 import { CartProvider } from '../context/cart';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -34,7 +33,7 @@ const Home = ({ cards, handleChange, handleClick, notifyAddedToCart, addToCart, 
     </div>
 
     {/* Content Section */}
-    <div data-aos="zoom-out">
+    <div data-aos="zoom-out" className=" w-full overflow-hidden h-100 mt-0 dark:bg-blue-100">
       {/* Best Sellers Section */}
       <header className="best-seller-content-header mb-0" data-aos="zoom-out">
         <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
@@ -44,7 +43,7 @@ const Home = ({ cards, handleChange, handleClick, notifyAddedToCart, addToCart, 
       </header>
 
       {/* Gin Best Sellers Section */}
-      <header className="gin-content-header" data-aos="zoom-out">
+      <header className="gin-content-header bg-yellow-100" data-aos="zoom-out">
         <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
           <span className="text-blue-700">Gin Best Sellers</span>
         </h3>
@@ -55,7 +54,7 @@ const Home = ({ cards, handleChange, handleClick, notifyAddedToCart, addToCart, 
       </header>
 
       {/* Whiskey Best Sellers Section */}
-      <header className="whiskey-content-header mb-0" data-aos="zoom-out">
+      <header className="whiskey-content-header mb-2 bg-gradient-to-r from-slate-900 to-slate-700" data-aos="zoom-out">
         <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
           <span className="text-blue-700">Whiskey Best Sellers</span>
         </h3>

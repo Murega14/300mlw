@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import gin from '../components/assets/gin2.png';
 import whiskey from '../components/assets/whiskey.png';
@@ -22,30 +22,9 @@ const cards = [
   { Image: cigs, name: 'Shop Cigarettes', route: '/cigs' }
 ];
 
-function ShootingStars() {
-  useEffect(() => {
-    const numStars = 10;
-
-    for (let i = 0; i < numStars; i++) {
-      createShootingStar();
-    }
-
-    function createShootingStar() {
-      const star = document.createElement('div');
-      star.className = 'shooting-star';
-      star.style.left = `${Math.random() * window.innerWidth}px`;
-      star.style.animationDuration = `${Math.random() * 2 + 1}s`; // Vary animation duration
-      document.body.appendChild(star);
-    }
-  }, []);
-
-  return null;
-}
-
 function Product({ handleClick, handleChange }) {
   return (
     <>
-      <ShootingStars />
       <div className="shop-products">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {cards.map((card, index) => (

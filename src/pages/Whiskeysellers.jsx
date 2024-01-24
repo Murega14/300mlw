@@ -71,11 +71,11 @@ function Whiskeysellers({ handleClick }) {
     <div className="best-seller-content-header flex flex-row justify-center gap-6 px-4 sm:px-8 py-0 md:py-12 rounded-lg overflow-x-auto relative">
       <ToastContainer />
       <div className="cards-container flex w-full overflow-x-auto">
-        <div className="product-cards-container flex space-x-4">
+        <div className="whiskey-product-cards-container flex space-x-4">
           {cards.map((product) => (
             <div
               key={product.id}
-              className="whiskey-product-card border border-gray-200 px-6 py-0 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-80 h-100"
+              className="whiskey-product-card border-gray-200 px-6 py-0 rounded-lg shadow dark:bg-gradient-to-l from-slate-500 to-slate-100 dark:border-gray-700 w-80 h-100"
             >
               <img
                 src={product.image}
@@ -133,25 +133,26 @@ function Whiskeysellers({ handleClick }) {
         </div>
       </div>
 
+      {/* Add horizontal scroll buttons */}
       <button
-        className="scroll-button left absolute top-1/2 transform -translate-y-1/2 left-0 bg-white border border-gray-300 px-2 py-1 rounded-full cursor-pointer"
-        onClick={() => {
-          const container = document.querySelector('.product-cards-container');
-          container.scrollLeft -= 200;
-        }}
-      >
-        &lt;
-      </button>
-      <button
-        className="scroll-button right absolute top-1/2 transform -translate-y-1/2 right-0 bg-white border border-gray-300 px-2 py-1 rounded-full cursor-pointer"
-        onClick={() => {
-          const container = document.querySelector('.product-cards-container');
-          container.scrollLeft += 200;
-        }}
-      >
-        &gt;
-      </button>
-
+          className="scroll-button left absolute top-1/2 transform -translate-y-1/2 left-0 bg-white border border-gray-300 px-2 py-1 rounded-full cursor-pointer"
+          onClick={() => {
+            const container = document.querySelector('.whiskey-product-cards-container');
+            container.scrollLeft -= 200; // Adjust the scroll distance as needed
+          }}
+        >
+          &lt;
+        </button>
+        <button
+          className="scroll-button right absolute top-1/2 transform -translate-y-1/2 right-0 bg-white border border-gray-300 px-2 py-1 rounded-full cursor-pointer"
+          onClick={() => {
+            const container = document.querySelector('.whiskey-product-cards-container');
+            container.scrollLeft += 200; // Adjust the scroll distance as needed
+          }}
+        >
+          &gt;
+        </button>
+  
       <Cart showModal={showModal} toggle={toggle} cartItems={cartItems} />
     </div>
   );

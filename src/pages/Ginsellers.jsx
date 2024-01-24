@@ -66,12 +66,12 @@ function Ginsellers({ handleClick, handleBuyNow, activeProduct }) {
   return (
     <div className="best-seller-content-header flex flex-row justify-center gap-6 px-4 sm:px-8 py-0 md:py-12 rounded-lg overflow-x-auto relative">
       <ToastContainer />
-      <div className="cards-container flex w-full overflow-x-auto">
-        <div className="product-cards-container flex space-x-4">
+      <div className="cards-container flex w-full overflow-x-hidden">
+        <div className="gin-product-cards-container flex space-x-4">
           {cards.map((product) => (
             <div
               key={product.id}
-              className="best-seller-product-card border border-gray-200 px-6 py-0 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-80 h-100"
+              className="best-seller-product-card border border-gray-200 px-6 py-0 rounded-lg shadow dark:bg-yellow-100 dark:border-gray-700 w-80 h-100"
             >
               <img
                 src={product.image}
@@ -82,7 +82,7 @@ function Ginsellers({ handleClick, handleBuyNow, activeProduct }) {
                 <h5 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-yellow-300">
                   {product.name}
                 </h5>
-                <span className="text-lg font-bold text-gray-900 dark:text-white">{product.price}</span>
+                <span className="text-lg font-bold text-gray-900 dark:text-gray-800">{product.price}</span>
               </div>
               <div className="p-2 border-t border-gray-200 dark:border-gray-700">
                 {!cartItems || !cartItems.find((item) => item.id === product.id) ? (
@@ -132,7 +132,7 @@ function Ginsellers({ handleClick, handleBuyNow, activeProduct }) {
       <button
         className="scroll-button left absolute top-1/2 transform -translate-y-1/2 left-0 bg-white border border-gray-300 px-2 py-1 rounded-full cursor-pointer"
         onClick={() => {
-          const container = document.querySelector('.product-cards-container');
+          const container = document.querySelector('.cards-container');
           container.scrollLeft -= 200;
         }}
       >
@@ -141,7 +141,7 @@ function Ginsellers({ handleClick, handleBuyNow, activeProduct }) {
       <button
         className="scroll-button right absolute top-1/2 transform -translate-y-1/2 right-0 bg-white border border-gray-300 px-2 py-1 rounded-full cursor-pointer"
         onClick={() => {
-          const container = document.querySelector('.product-cards-container');
+          const container = document.querySelector('.cards-container');
           container.scrollLeft += 200;
         }}
       >
