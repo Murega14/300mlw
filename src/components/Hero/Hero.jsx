@@ -1,33 +1,33 @@
-import React from 'react';
-import gilbeys from '../assets/gilbeysgin750ml.png';
-import ko from '../assets/ko750ml.png';
-import whitecap from '../assets/whitecap.png';
-import tusker from '../assets/tusker.png';
-import cmorg from '../assets/captainmorgan.png';
-import jameson from '../assets/jameson.png';
-import smirnoff from '../assets/sminorff.png';
-import Cart from '../../pages/Cart';
-import { useContext } from 'react';
-import { CartContext } from '../../context/cart';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import './Hero.css'
+import React from "react";
+import gilbeys from "../assets/gilbeysgin750ml.png";
+import ko from "../assets/ko750ml.png";
+import whitecap from "../assets/whitecap.png";
+import tusker from "../assets/tusker.png";
+import cmorg from "../assets/captainmorgan.png";
+import jameson from "../assets/jameson.png";
+import smirnoff from "../assets/sminorff.png";
+import Cart from "../../pages/Cart";
+import { useContext } from "react";
+import { CartContext } from "../../context/cart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const cards = [
-  { Image: jameson, name: 'Jameson 750ml', price: '2,700', id: '1' },
-  { Image: smirnoff, name: 'Smirnoff 750ml', price: '2,500', id: '2' },
-  { Image: gilbeys, name: 'Gilbeys Gin 750ml', price: '1,300', id: '3' },
-  { Image: ko, name: 'KO Gin 750ml', price: '2,500', id: '4' },
-  { Image: whitecap, name: 'White Cap Lager 500ml', price: '250', id: '5' },
-  { Image: tusker, name: 'Tusker Lager 500ml', price: '250', id: '6' },
-  { Image: cmorg, name: 'Captain Morgan 750ml', price: '1,000', id: '7' },
+  { Image: jameson, name: "Jameson 750ml", price: "2,700", id: "1" },
+  { Image: smirnoff, name: "Smirnoff 750ml", price: "2,500", id: "2" },
+  { Image: gilbeys, name: "Gilbeys Gin 750ml", price: "1,300", id: "3" },
+  { Image: ko, name: "KO Gin 750ml", price: "2,500", id: "4" },
+  { Image: whitecap, name: "White Cap Lager 500ml", price: "250", id: "5" },
+  { Image: tusker, name: "Tusker Lager 500ml", price: "250", id: "6" },
+  { Image: cmorg, name: "Captain Morgan 750ml", price: "1,000", id: "7" },
   // Add more products if needed
 ];
 
-
 function Hero() {
   const [showModal, setShowModal] = React.useState(false);
-  const { cartItems, addToCart, removeFromCart } = useContext(CartContext) || {};
+  const { cartItems, addToCart, removeFromCart } =
+    useContext(CartContext) || {};
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
@@ -42,31 +42,31 @@ function Hero() {
 
   const notifyAddedToCart = (product) =>
     toast.success(`${product.name} added to cart!`, {
-      position: 'top-center',
+      position: "top-center",
       autoClose: 2000,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      theme: 'colored',
+      theme: "colored",
       style: {
-        backgroundColor: '#fff',
-        color: '#000',
+        backgroundColor: "#fff",
+        color: "#000",
       },
     });
 
   const notifyRemovedFromCart = (product) =>
     toast.error(`${product.name} removed from cart!`, {
-      position: 'top-center',
+      position: "top-center",
       autoClose: 2000,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      theme: 'colored',
+      theme: "colored",
       style: {
-        backgroundColor: '#000',
-        color: '#fff',
+        backgroundColor: "#000",
+        color: "#fff",
       },
     });
 
@@ -80,11 +80,11 @@ function Hero() {
   };
 
   return (
-    <div className="contents">
+    <div className="contents border m-20 p-20 rounded">
       <ToastContainer />
       <div className="best-seller-content-header flex flex-row justify-center gap-6 px-4 sm:px-8 py-0 md:py-12 rounded-lg overflow-x-auto relative">
-        <div className="cards-container flex w-full overflow-x-auto">
-          <div className="product-cards-container flex space-x-4 overflow-x-hidden ">
+        <div className="cards-container flex w-full overflow-x-auto border rounded">
+          <div className="product-cards-container flex space-x-4 overflow-x-hidden border-4 rounded border-gray-800 ">
             {isLoading ? (
               <div className="flex flex-row gap-2">
                 <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce"></div>
@@ -106,10 +106,13 @@ function Hero() {
                     <h5 className="text-lg font-bold text-black truncate block capitalize">
                       {product.name}
                     </h5>
-                    <span className="text-lg font-semibold text-black cursor-auto my-3">Ksh{product.price}</span>
+                    <span className="text-lg font-semibold text-black cursor-auto my-3">
+                      Ksh{product.price}
+                    </span>
                   </div>
                   <div className="p-2 border-t border-gray-200 dark:border-gray-700">
-                    {!cartItems || !cartItems.find((item) => item.id === product.id) ? (
+                    {!cartItems ||
+                    !cartItems.find((item) => item.id === product.id) ? (
                       <button
                         className="w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                         onClick={() => {
@@ -129,12 +132,15 @@ function Hero() {
                             +
                           </button>
                           <p className="text-gray-600">
-                            {cartItems.find((item) => item.id === product.id)?.quantity || 0}
+                            {cartItems.find((item) => item.id === product.id)
+                              ?.quantity || 0}
                           </p>
                           <button
                             className="px-2 py-1 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
                             onClick={() => {
-                              const cartItem = cartItems.find((item) => item.id === product.id);
+                              const cartItem = cartItems.find(
+                                (item) => item.id === product.id
+                              );
                               if (cartItem.quantity === 1) {
                                 handleRemoveFromCart(product);
                               } else {
@@ -153,12 +159,14 @@ function Hero() {
             )}
           </div>
         </div>
-  
+
         {/* Add horizontal scroll buttons */}
         <button
           className="scroll-button left absolute top-1/2 transform -translate-y-1/2 left-0 bg-white border border-gray-300 px-2 py-1 rounded-full cursor-pointer"
           onClick={() => {
-            const container = document.querySelector('.product-cards-container');
+            const container = document.querySelector(
+              ".product-cards-container"
+            );
             container.scrollLeft -= 800; // Adjust the scroll distance as needed
           }}
         >
@@ -167,17 +175,19 @@ function Hero() {
         <button
           className="scroll-button right absolute top-1/2 transform -translate-y-1/2 right-0 bg-white border border-gray-300 px-2 py-1 rounded-full cursor-pointer"
           onClick={() => {
-            const container = document.querySelector('.product-cards-container');
+            const container = document.querySelector(
+              ".product-cards-container"
+            );
             container.scrollLeft += 800; // Adjust the scroll distance as needed
           }}
         >
           &gt;
         </button>
-  
+
         <Cart showModal={showModal} toggle={toggle} cartItems={cartItems} />
       </div>
     </div>
-  );  
+  );
 }
 
 export default Hero;

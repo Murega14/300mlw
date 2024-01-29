@@ -112,6 +112,10 @@
   transform: scale(1.1) translateY(-1px);
 }
 
+.shop-products {
+  float: left;
+}
+
 @keyframes dance6123 {
   to {
     background-position: var(--width);
