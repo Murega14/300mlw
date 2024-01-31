@@ -9,7 +9,6 @@ import "aos/dist/aos.css";
 import logo from "../components/assets/logo.jpg";
 import { Link } from "react-router-dom";
 import Cart from "../pages/Cart";
-import Product from "../pages/Product";
 
 const Home = ({
   cards,
@@ -58,38 +57,106 @@ const Home = ({
         </div>
       </section>
 
-      <div className="home min-h-screen overflow-hidden w-full box-sizing-border-box flex">
+      
+      <div className="home min-h-screen bg-white overflow-hidden w-full box-sizing-border-box flex">
         {/* Left Side: Products */}
-        <aside className="shop-products float-left w-30 border border-black-100">
-          <h2>What are you Looking for?</h2>
-          <ul>
-            <li href="/gin">Gin</li>
-            <li href="/whiskey">Whiskey</li>
-            <li href="/vodka">Vodka</li>
-            <li href="/rum">Rum</li>
-            <li href="/beer">Beer</li>
-            <li href="/wine">Wine</li>
-            <li href="tequila">Tequila</li>
-            <li href="/mixers">Mixers</li>
-            <li href="cigs">Cigarettes</li>
+        <aside className="shop-products float-left w-30 border border-black-100 h-screen"
+        style={{backgroundColor: 'steelblue'}} >
+          <span className="text-black-100 text-[15px] mt-10">What are you Looking for?</span>
+          <div className="container box-border h-screen" style={{ position: 'sticky', top: '0'}}>
+          <ul className="text-black-100" style={{ position: 'sticky', top: '0', textColor: 'white' }}>
+            <li style={{ position: 'sticky', top: '0' }}>
+              <Link
+                to="/gin"
+                className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
+              >
+                Gin
+              </Link>
+            </li>
+            <li style={{ position: 'sticky', top: '0' }}>
+              <Link
+                to="/whiskey"
+                className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
+              >
+                Whiskey
+              </Link>
+            </li>
+            <li style={{ position: 'sticky', top: '0' }}>
+              <Link
+                to="/vodka"
+                className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
+              >
+                Vodka
+              </Link>
+            </li>
+            <li style={{ position: 'sticky', top: '0' }}>
+              <Link
+                to="/rum"
+                className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
+              >
+                Rum
+              </Link>
+            </li>
+            <li style={{ position: 'sticky', top: '0' }}>
+              <Link
+                to="/beer"
+                className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
+              >
+                Beer
+              </Link>
+            </li>
+            <li style={{ position: 'sticky', top: '0' }}>
+              <Link
+                to="/wine"
+                className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
+              >
+                Wine
+              </Link>
+            </li>
+            <li style={{ position: 'sticky', top: '0' }}>
+              <Link
+                to="tequila"
+                className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
+              >
+                Tequila
+              </Link>
+            </li>
+            <li style={{ position: 'sticky', top: '0' }}>
+              <Link
+                to="/mixers"
+                className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
+              >
+                Mixers
+              </Link>
+            </li>
+            <li style={{ position: 'sticky', top: '0' }}>
+              <Link
+                to="cigs"
+                className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
+              >
+                Cigarettes
+              </Link>
+            </li>
           </ul>
+          </div>
         </aside>
+  
 
         {/* Right Side: Sections */}
-        <div className="flex flex-col w-full overflow-hidden h-100 mt-0">
+        <div className="container flex flex-col w-full overflow-x-hidden overflow-auto h-screen mt-4">
           {/* Best Sellers Section */}
-          <section className="p-4 border-solid m-6 rounded">
+          <section className="p-4 m-6 rounded box-content bg-inherit">
             <header
               className="best-seller-content-header mb-0"
               data-aos="zoom-out"
             >
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
-                <span className="best-seller-content-header text-black-800 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
+                <span className="best-seller-content-header text-black-100 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
                   Best Sellers
                 </span>
               </h3>
             </header>
-            <article className="bg-blue-100">
+            <article className="bg-blue-100" style={{ borderRadius: '30px'}}>
               <Hero
                 addToCart={addToCart}
                 notifyAddedToCart={notifyAddedToCart}
@@ -100,16 +167,18 @@ const Home = ({
           </section>
 
           {/* Gin Best Sellers Section */}
-          <section className="bg-yellow-100">
-            <header
-              className="gin-content-header bg-yellow-100"
-              data-aos="zoom-out"
-            >
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-                <span className="text-blue-700">Gin Best Sellers</span>
+          <section className="p-4 m-6 rounded box-content bg-inherit " style={{ borderRadius: '30px' }}
+          >
+            <header className="gin-content-header mb-0" data-aos="zoom-out">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold m-0 p-4 text-black-100">
+                <span className="best-seller-content-header text-black-100 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
+                  Gin Best Sellers
+                  </span>
               </h3>
             </header>
-            <article className="bg-yellow-100 solid">
+            <article 
+            className=" solid rounded "
+            style={{ borderRadius: '30px'}}>
               <Ginsellers
                 cards={cards}
                 handleClick={handleClick}
@@ -117,7 +186,7 @@ const Home = ({
               />
               <Link
                 to="/gin"
-                className="shop-link bg-blue-700 text-white font-bold py-2 px-4 rounded mt-0 mb-10 inline-block"
+                className="shop-link  text-greeb-800 font-bold py-2 px-4 rounded mt-4 mb-4 inline-block"
               >
                 Shop Gin
               </Link>
@@ -125,16 +194,17 @@ const Home = ({
           </section>
 
           {/* Whiskey Best Sellers Section */}
-          <section className="bg-gray-800">
+          <section className="rounded box-content shadow bg-white m-14"
+          style={{borderRadius: '25px'}}>
             <header
               className="whiskey-content-header mb-2 bg:gray-800"
               data-aos="zoom-out"
             >
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-                <span className="text-blue-700">Whiskey Best Sellers</span>
+                <span className="text-black-100" style={{ justifyContent: 'center'}}>Whiskey Best Sellers</span>
               </h3>
             </header>
-            <article>
+            <article style={{borderRadius: '30px'}}>
               <Whiskeysellers
                 cards={cards}
                 handleClick={handleClick}
@@ -142,7 +212,7 @@ const Home = ({
               />
               <Link
                 to="/whiskey"
-                className="shop-link bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 inline-block"
+                className="shop-link text-white font-bold py-2 px-4 rounded mt-4 mb-4 inline-block"
               >
                 Shop Whiskey
               </Link>

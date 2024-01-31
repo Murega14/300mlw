@@ -68,14 +68,16 @@ function Whiskeysellers({ handleClick }) {
   };
 
   return (
-    <div className="best-seller-content-header flex flex-row justify-center gap-6 px-4 sm:px-8 py-0 md:py-12 rounded-lg overflow-x-auto relative">
+    <>
       <ToastContainer />
-      <div className="cards-container flex w-full overflow-x-auto">
-        <div className="whiskey-product-cards-container flex space-x-4">
+      <div className="container flex w-full overflow-x-hidden"
+      style={{borderRadius: '30px'}}>
+        <div className="gin-product-cards-container flex space-x-4 m-0 ">
           {cards.map((product) => (
             <div
               key={product.id}
-              className="whiskey-product-card border-gray-200 px-6 py-0 rounded-lg shadow dark:bg-gradient-to-l from-slate-500 to-slate-100 dark:border-gray-700 w-80 h-100"
+              className="whiskey-product-card border-gray-200 px-6 py-0  rounded-lg shadow dark:border-gray-700 w-80 h-100"
+              style={{borderRadius: '30px', backgroundColor: 'lightblue'}}
             >
               <img
                 src={product.image}
@@ -154,7 +156,8 @@ function Whiskeysellers({ handleClick }) {
         </button>
   
       <Cart showModal={showModal} toggle={toggle} cartItems={cartItems} />
-    </div>
+
+    </>
   );
 }
 

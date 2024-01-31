@@ -80,11 +80,16 @@ function Hero() {
   };
 
   return (
-    <div className="contents border m-20 p-20 rounded">
+    <>
+      
       <ToastContainer />
-      <div className="best-seller-content-header flex flex-row justify-center gap-6 px-4 sm:px-8 py-0 md:py-12 rounded-lg overflow-x-auto relative">
-        <div className="cards-container flex w-full overflow-x-auto border rounded">
-          <div className="product-cards-container flex space-x-4 overflow-x-hidden border-4 rounded border-gray-800 ">
+      <div 
+      className="cards-container flex w-full overflow-x-auto bg-['teal'] relative"
+      style={{borderRadius: '30px'}}>
+        
+          <div 
+          className="card flex space-x-4 m-0 bg-white"
+          style={{borderRadius: '30px'}}>
             {isLoading ? (
               <div className="flex flex-row gap-2">
                 <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce"></div>
@@ -95,7 +100,8 @@ function Hero() {
               cards.map((product) => (
                 <div
                   key={product.id}
-                  className="card border border-gray-200 px-14 py-0 rounded-lg shadow dark:bg-blue-100 dark:border-gray-700 w-80 h-100"
+                  className="best-seller-product-card hover:bg-green-800 transition-all border-white px-6 py-0 box-content shadow w-80 h-100 m-4 "
+                  style={{borderRadius: '40px', backgroundColor: 'teal'}}
                 >
                   <img
                     src={product.Image}
@@ -158,10 +164,14 @@ function Hero() {
               ))
             )}
           </div>
-        </div>
+        
 
         {/* Add horizontal scroll buttons */}
-        <button
+        
+
+        <Cart showModal={showModal} toggle={toggle} cartItems={cartItems} />
+      </div>
+      <button
           className="scroll-button left absolute top-1/2 transform -translate-y-1/2 left-0 bg-white border border-gray-300 px-2 py-1 rounded-full cursor-pointer"
           onClick={() => {
             const container = document.querySelector(
@@ -183,10 +193,8 @@ function Hero() {
         >
           &gt;
         </button>
-
-        <Cart showModal={showModal} toggle={toggle} cartItems={cartItems} />
-      </div>
-    </div>
+    
+    </>
   );
 }
 
