@@ -14,13 +14,13 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 const cards = [
-  { Image: jameson, name: "Jameson 750ml", price: "2,700", id: "1" },
-  { Image: smirnoff, name: "Smirnoff 750ml", price: "2,500", id: "2" },
-  { Image: gilbeys, name: "Gilbeys Gin 750ml", price: "1,300", id: "3" },
-  { Image: ko, name: "KO Gin 750ml", price: "2,500", id: "4" },
+  { Image: jameson, name: "Jameson 750ml", price: "2700", id: "1" },
+  { Image: smirnoff, name: "Smirnoff 750ml", price: "2500", id: "2" },
+  { Image: gilbeys, name: "Gilbeys Gin 750ml", price: "1300", id: "3" },
+  { Image: ko, name: "KO Gin 750ml", price: "2500", id: "4" },
   { Image: whitecap, name: "White Cap Lager 500ml", price: "250", id: "5" },
   { Image: tusker, name: "Tusker Lager 500ml", price: "250", id: "6" },
-  { Image: cmorg, name: "Captain Morgan 750ml", price: "1,000", id: "7" },
+  { Image: cmorg, name: "Captain Morgan 750ml", price: "1000", id: "7" },
   // Add more products if needed
 ];
 

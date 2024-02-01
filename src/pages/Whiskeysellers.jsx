@@ -14,14 +14,14 @@ import Cart from '../pages/Cart';
 import { CartContext } from '../context/cart';
 
 const cards = [
-  { image: martell, name: 'Martell 750ml', price: 'Ksh 4,000', id: '12' },
-  { image: jameson, name: 'Jameson 750ML', price: 'Ksh 2,500', id: '33' },
-  { image: jd, name: 'Jack Daniels 750ML', price: 'Ksh 3,000', id: '34' },
-  { image: jimbeam, name: 'Jim Beam 750ML', price: 'Ksh 2,500', id: '32' },
-  { image: redlabel, name: 'Red Label 750ML', price: 'Ksh 1,800', id: '35' },
-  { image: singleton, name: 'Singleton 12yrs 750ML', price: 'Ksh 4,500', id: '31' },
-  { image: blacklabel, name: 'Black Label 750ML', price: 'Ksh 2,800', id: '36' },
-  { image: allseasons, name: 'All Seasons 750ML', price: 'Ksh 1,200', id: '37' },
+  { image: martell, name: 'Martell 750ml', price: '4000', id: '12' },
+  { image: jameson, name: 'Jameson 750ML', price: '2500', id: '33' },
+  { image: jd, name: 'Jack Daniels 750ML', price: '3000', id: '34' },
+  { image: jimbeam, name: 'Jim Beam 750ML', price: '2500', id: '32' },
+  { image: redlabel, name: 'Red Label 750ML', price: '1800', id: '35' },
+  { image: singleton, name: 'Singleton 12yrs 750ML', price: '4500', id: '31' },
+  { image: blacklabel, name: 'Black Label 750ML', price: '2800', id: '36' },
+  { image: allseasons, name: 'All Seasons 750ML', price: '1200', id: '37' },
 ];
 
 function Whiskeysellers({ handleClick }) {
@@ -88,7 +88,7 @@ function Whiskeysellers({ handleClick }) {
                 <h5 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-yellow-300">
                   {product.name}
                 </h5>
-                <span className="text-lg font-bold text-gray-900 dark:text-white">{product.price}</span>
+                <span className="text-lg font-bold text-gray-900 dark:text-white">Ksh{product.price}</span>
               </div>
               <div className="p-2 border-t border-gray-200 dark:border-gray-700">
                 {!cartItems || !cartItems.find((item) => item.id === product.id) ? (

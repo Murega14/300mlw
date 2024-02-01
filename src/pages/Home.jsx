@@ -169,8 +169,8 @@ const Home = ({
           {/* Gin Best Sellers Section */}
           <section className="p-4 m-6 rounded box-content bg-inherit " style={{ borderRadius: '30px' }}
           >
-            <header className="gin-content-header mb-0" data-aos="zoom-out">
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold m-0 p-4 text-black-100">
+            <header className="gin-content-header mb-0">
+              <h3 className="text-4xl md:text-3xl lg:text-4xl font-bold mb-6 p-4 text-black-100">
                 <span className="best-seller-content-header text-black-100 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
                   Gin Best Sellers
                   </span>
@@ -186,7 +186,7 @@ const Home = ({
               />
               <Link
                 to="/gin"
-                className="shop-link  text-greeb-800 font-bold py-2 px-4 rounded mt-4 mb-4 inline-block"
+                className="shop-link  text-white bg-blue-800 font-bold py-2 px-4 rounded mt-4 mb-4 inline-block"
               >
                 Shop Gin
               </Link>
@@ -197,10 +197,9 @@ const Home = ({
           <section className="rounded box-content shadow bg-white m-14"
           style={{borderRadius: '25px'}}>
             <header
-              className="whiskey-content-header mb-2 bg:gray-800"
-              data-aos="zoom-out"
+              className="whiskey-content-header mb-2"
             >
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+              <h3 className="text-4xl md:text-3xl lg:text-4xl font-bold mb-6">
                 <span className="text-black-100" style={{ justifyContent: 'center'}}>Whiskey Best Sellers</span>
               </h3>
             </header>
@@ -212,7 +211,7 @@ const Home = ({
               />
               <Link
                 to="/whiskey"
-                className="shop-link text-white font-bold py-2 px-4 rounded mt-4 mb-4 inline-block"
+                className="shop-link text-white font-bold py-2 px-4 bg-blue-800 rounded mt-4 mb-4 inline-block"
               >
                 Shop Whiskey
               </Link>

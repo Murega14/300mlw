@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import applogo from '../assets/applogo.png';
+import Cart from '../../pages/Cart';
+import { CartContext} from '../../context/cart.jsx';
+
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [showModal, setshowModal] = useState(false);
+  const { cartItems} = React.useContext(CartContext) || {};
+
+
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
+  };
+
+  const toggle = () => {
+    setshowModal(!showModal);
   };
 
   return (
@@ -122,7 +133,15 @@ const Navbar = () => {
             </li>
             
           </ul>
+          <div className='m-4'>
+          {!showModal && <button 
+          className='px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700'
+          style={{ float: 'right '}}
+          onClick={toggle}
+        >Cart ({cartItems.length})</button>}
+          </div>
         </div>
+        <Cart showModal={showModal} toggle={toggle} />
       </div>
     </nav>
   );

@@ -15,14 +15,14 @@ const cards = [
   {
     image: gordonspink,
     name: "Gordon's Pink 750ml",
-    price: "Ksh 1,700",
+    price: "1700",
     id: "12",
   },
-  { image: tanql, name: "Tanqueray 1L", price: "Ksh 3,000", id: "13" },
-  { image: gilbeys, name: "Gilbeys Gin 750ml", price: "Ksh 1,300", id: "3" },
-  { image: ko, name: "KO Gin 750ml", price: "Ksh 2,500", id: "4" },
-  { image: chrome, name: "Chrome Gin 750ml", price: "Ksh 800", id: "5" },
-  { image: best, name: "Best Gin 750ml", price: "Ksh 1,000", id: "6" },
+  { image: tanql, name: "Tanqueray 1L", price: "3000", id: "13" },
+  { image: gilbeys, name: "Gilbeys Gin 750ml", price: "1300", id: "3" },
+  { image: ko, name: "KO Gin 750ml", price: "2500", id: "4" },
+  { image: chrome, name: "Chrome Gin 750ml", price: "800", id: "5" },
+  { image: best, name: "Best Gin 750ml", price: "1000", id: "6" },
 ];
 
 function Ginsellers({ handleClick, handleBuyNow, activeProduct }) {
@@ -72,15 +72,16 @@ function Ginsellers({ handleClick, handleBuyNow, activeProduct }) {
   return (
     <>
       <ToastContainer />
-      <div 
-      className="container flex w-full overflow-x-auto bg-white"
-      style={{borderRadius: '30px'}}>
+      <div
+        className="container flex w-full overflow-x-auto bg-white"
+        style={{ borderRadius: "30px" }}
+      >
         <div className="gin-product-cards-container flex space-x-4 m-0 bg-white">
           {cards.map((product) => (
             <div
               key={product.id}
               className="best-seller-product-card px-6 py-0 rounded box-content shadow w-80 h-100 m-4 "
-              style={{borderRadius: '30px', backgroundColor: 'lightgreen'}}
+              style={{ borderRadius: "30px", backgroundColor: "lightgreen" }}
             >
               <img
                 src={product.image}
@@ -92,7 +93,7 @@ function Ginsellers({ handleClick, handleBuyNow, activeProduct }) {
                   {product.name}
                 </h5>
                 <span className="text-lg font-bold text-gray-900 dark:text-gray-800">
-                  {product.price}
+                  Ksh{product.price}
                 </span>
               </div>
               <div className="p-2 border-t border-gray-200 dark:border-gray-700">
