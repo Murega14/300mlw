@@ -76,7 +76,7 @@ function Whiskeysellers({ handleClick }) {
           {cards.map((product) => (
             <div
               key={product.id}
-              className="whiskey-product-card border-gray-200 px-6 py-0  rounded-lg shadow dark:border-gray-700 w-80 h-100"
+              className="whiskey-product-card border-gray-200 px-6 py-0  rounded-lg shadow dark:border-gray-700"
               style={{borderRadius: '30px', backgroundColor: 'teal'}}
             >
                <img

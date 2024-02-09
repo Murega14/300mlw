@@ -100,8 +100,8 @@ function Hero() {
               cards.map((product) => (
                 <div
                   key={product.id}
-                  className="best-seller-product-card hover:bg-green-800 transition-all border-white px-6 py-0 box-content shadow w-80 h-100 m-4 "
-                  style={{borderRadius: '40px', backgroundColor: 'teal'}}
+                  className="best-seller-product-card hover:bg-green-800 transition-all border-white px-6 py-0 box-content shadow m-4 "
+                  style={{borderRadius: '25px', backgroundColor: 'teal'}}
                 >
                   <img
                     src={product.Image}

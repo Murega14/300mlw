@@ -37,13 +37,14 @@ const Home = ({
       >
         <div className="text-box w-full text-center dark-bg-yellow-100">
           <h1
-            className="text-4xl md:text-6xl lg:text-10xl font-bold mb-4 pb-4 pt-6"
+            className="text-2xl sm:text-1xl md:text-3xl lg:text-8xl font-bold mb-4 pb-4 pt-6"
             data-aos="zoom-out"
+            style={{display: 'flex'}}
           >
             Mapema ndo Best!!
           </h1>
           <p className="text-lg md:text-xl mb-4">
-            <span className="text-black-800 dark:text-black-800">
+            <span className="text-black-800 dark:text-black-800"> 
               Get Affordable drinks
             </span>{" "}
             and have them delivered straight to your doorstep. Chaser pia ziko.
@@ -62,7 +63,7 @@ const Home = ({
         {/* Left Side: Products */}
         <aside className="shop-products float-left w-30 border border-black-100 h-screen"
         style={{backgroundColor: 'teal'}} >
-          <span className="text-black-100 text-[15px] mt-10">What are you Looking for?</span>
+          <span className="text-black-100 text-[15px] mt-10">What are you Drinking?</span>
           <div className="container box-border h-screen" style={{ position: 'sticky', top: '0'}}>
           <ul className="text-black-100" style={{ position: 'sticky', top: '0', textColor: 'white' }}>
             <li style={{ position: 'sticky', top: '0' }}>
