@@ -81,20 +81,20 @@ function Ginsellers({ handleClick, handleBuyNow, activeProduct }) {
             <div
               key={product.id}
               className="best-seller-product-card px-6 py-0 rounded box-content shadow w-80 h-100 m-4 "
-              style={{ borderRadius: "30px", backgroundColor: "lightgreen" }}
+              style={{ borderRadius: "30px", backgroundColor: "teal" }}
             >
-              <img
-                src={product.image}
-                alt={`Product: ${product.name}`}
-                className="object-cover w-full h-80 rounded-t-lg"
-              />
-              <div className="px-2 pb-2">
-                <h5 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-yellow-300">
-                  {product.name}
-                </h5>
-                <span className="text-lg font-bold text-gray-900 dark:text-gray-800">
-                  Ksh{product.price}
-                </span>
+               <img
+                    src={product.image}
+                    alt={`Product: ${product.name}`}
+                    className="h-80 w-72 dark:border-black-800 object-cover"
+                  />
+                  <div className="px-2 pb-2 border-t-2 dark:border-black-800">
+                    <h5 className="text-lg font-bold text-black truncate block capitalize">
+                      {product.name}
+                    </h5>
+                    <span className="text-lg font-semibold text-black cursor-auto my-3">
+                      Ksh{product.price}
+                    </span>
               </div>
               <div className="p-2 border-t border-gray-200 dark:border-gray-700">
                 {!cartItems ||

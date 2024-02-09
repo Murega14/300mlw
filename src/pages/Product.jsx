@@ -25,7 +25,7 @@ const cards = [
 function Product({ handleClick, handleChange }) {
   return (
     <>
-      <div className="shop-products">
+      <div className="shop-products p-16 m-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {cards.map((card, index) => (
             <Link

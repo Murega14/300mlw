@@ -61,7 +61,7 @@ const Home = ({
       <div className="home min-h-screen bg-white overflow-hidden w-full box-sizing-border-box flex">
         {/* Left Side: Products */}
         <aside className="shop-products float-left w-30 border border-black-100 h-screen"
-        style={{backgroundColor: 'steelblue'}} >
+        style={{backgroundColor: 'teal'}} >
           <span className="text-black-100 text-[15px] mt-10">What are you Looking for?</span>
           <div className="container box-border h-screen" style={{ position: 'sticky', top: '0'}}>
           <ul className="text-black-100" style={{ position: 'sticky', top: '0', textColor: 'white' }}>
@@ -186,7 +186,7 @@ const Home = ({
               />
               <Link
                 to="/gin"
-                className="shop-link  text-white bg-blue-800 font-bold py-2 px-4 rounded mt-4 mb-4 inline-block"
+                className="shop-link text-white bg-blue-800 font-bold py-2 px-4 rounded mt-4 mb-4 inline-block"
               >
                 Shop Gin
               </Link>
@@ -211,7 +211,7 @@ const Home = ({
               />
               <Link
                 to="/whiskey"
-                className="shop-link text-white font-bold py-2 px-4 bg-blue-800 rounded mt-4 mb-4 inline-block"
+                className="shop-link text-white bg-blue-800 font-bold py-2 px-4 rounded mt-4 mb-4 inline-block"
               >
                 Shop Whiskey
               </Link>
