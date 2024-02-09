@@ -35,11 +35,10 @@ const Home = ({
           backgroundPosition: "center",
         }}
       >
-        <div className="text-box w-full text-center dark-bg-yellow-100">
+        <div className="text-box w-full text-center dark-bg-yellow-100 ">
           <h1
-            className="text-2xl sm:text-1xl md:text-3xl lg:text-8xl font-bold mb-4 pb-4 pt-6"
+            className="text-2xl sm:text-7xl md:text-3xl lg:text-8xl font-semibold m-10 p-7"
             data-aos="zoom-out"
-            style={{ display: "flex" }}
           >
             Mapema ndo Best!!
           </h1>
