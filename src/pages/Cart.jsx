@@ -64,7 +64,7 @@ export default function Cart ({showModal, toggle}) {
                 <img src={item.thumbnail || item.image || item.Image} alt={item.title || item.name} className="rounded-md w-24 h-24" />
                 <div className="flex gap-8 justify-center">
                   <h1 className="text-lg font-bold">{item.title || item.name}</h1>
-                  <p className="text-gray-600">${item.price}</p>
+                  <p className="text-gray-600">ksh{item.price}</p>
                 </div>
               </div>
               <div className="flex gap-4">
