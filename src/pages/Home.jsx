@@ -168,7 +168,8 @@ const Home = ({
           </section>
 
           {/* Gin Best Sellers Section */}
-          <section className="p-4 m-6 rounded box-content bg-inherit " style={{ borderRadius: '30px' }}
+          <section className="p-4 m-6 rounded box-content bg-inherit "
+           style={{ borderRadius: '30px' }}
           >
             <header className="gin-content-header mb-0">
               <h3 className="text-4xl md:text-3xl lg:text-4xl font-bold mb-6 p-4 text-black-100">
@@ -195,7 +196,7 @@ const Home = ({
           </section>
 
           {/* Whiskey Best Sellers Section */}
-          <section className="rounded box-content shadow bg-white m-14"
+          <section className="p-4 m-6 rounded box-content bg-inherit"
           style={{borderRadius: '25px'}}>
             <header
               className="whiskey-content-header mb-2"

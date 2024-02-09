@@ -70,8 +70,8 @@ function Whiskeysellers({ handleClick }) {
   return (
     <>
       <ToastContainer />
-      <div className="container flex w-full overflow-x-hidden"
-      style={{borderRadius: '30px'}}>
+      <div className="container flex w-full overflow-x-auto"
+      style={{borderRadius: '25px'}}>
         <div className="gin-product-cards-container flex space-x-4 m-0 ">
           {cards.map((product) => (
             <div
