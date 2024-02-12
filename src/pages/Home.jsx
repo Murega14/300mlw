@@ -57,11 +57,12 @@ const Home = ({
         </div>
       </section>
 
-      <div className="home min-h-screen bg-white overflow-hidden w-full box-sizing-border-box flex">
+      <div 
+      className="home min-h-screen bg-[#747264] overflow-hidden w-full box-sizing-border-box flex">
         {/* Left Side: Products */}
         <aside
           className="shop-products float-left w-30 border border-black-100 h-screen"
-          style={{ backgroundColor: "teal" }}
+          style={{ backgroundColor: "rgb(215, 228, 192)" }}
         >
           <span className="text-black-100 text-[15px] mt-10">
             What are you Drinking?
@@ -237,7 +238,7 @@ const Home = ({
         </CartProvider>
       </div>
 
-      <footer className="bg-gray-400 rounded-lg shadow dark:bg-gray-900 m-0 ">
+      <footer className="bg-white rounded-lg shadow dark:bg-gray-900 m-0 ">
         <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
           <div className="sm:flex sm:items-center sm:justify-between">
             <a

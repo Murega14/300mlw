@@ -76,13 +76,13 @@ function Whiskeysellers({ handleClick }) {
           {cards.map((product) => (
             <div
               key={product.id}
-              className="whiskey-product-card border-gray-200 px-6 py-0  rounded-lg shadow dark:border-gray-700"
-              style={{borderRadius: '30px', backgroundColor: 'teal'}}
+              className="whiskey-product-card border-gray-200 px-6 py-0 rounded-lg shadow dark:border-gray-700 w-60 h-100"
+              style={{borderRadius: '30px', backgroundColor: 'rgb(179, 163,152)'}}
             >
                <img
                     src={product.image}
                     alt={`Product: ${product.name}`}
-                    className="h-80 w-72 dark:border-black-800 object-cover"
+                    className="h-60 w-60 dark:border-black-800 object-cover"
                   />
                   <div className="px-2 pb-2 border-t-2 dark:border-black-800">
                     <h5 className="text-lg font-bold text-black truncate block capitalize">

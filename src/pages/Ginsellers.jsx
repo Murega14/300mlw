@@ -80,13 +80,13 @@ function Ginsellers({ handleClick, handleBuyNow, activeProduct }) {
           {cards.map((product) => (
             <div
               key={product.id}
-              className="best-seller-product-card px-6 py-0 rounded box-content shadow m-4 "
-              style={{ borderRadius: "30px", backgroundColor: "teal" }}
+              className="best-seller-product-card px-6 py-0 rounded box-content shadow m-4 w-60 h-100"
+              style={{ borderRadius: "30px", backgroundColor: "rgb(187, 195, 164)" }}
             >
                <img
                     src={product.image}
                     alt={`Product: ${product.name}`}
-                    className="h-80 w-72 dark:border-black-800 object-cover"
+                    className="h-60 w-60 dark:border-black-800 object-cover"
                   />
                   <div className="px-2 pb-2 border-t-2 dark:border-black-800">
                     <h5 className="text-lg font-bold text-black truncate block capitalize">
