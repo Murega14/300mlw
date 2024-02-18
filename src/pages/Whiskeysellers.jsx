@@ -70,14 +70,14 @@ function Whiskeysellers({ handleClick }) {
   return (
     <>
       <ToastContainer />
-      <div className="container flex w-full overflow-x-auto"
+      <div className="container flex w-full overflow-x-hidden"
       style={{borderRadius: '25px'}}>
         <div className="gin-product-cards-container flex space-x-4 m-0 ">
           {cards.map((product) => (
             <div
               key={product.id}
-              className="whiskey-product-card border-gray-200 px-6 py-0 rounded-lg shadow dark:border-gray-700 w-60 h-100"
-              style={{borderRadius: '30px', backgroundColor: 'rgb(179, 163,152)'}}
+              className="whiskey-product-card border-gray-200 px-6 py-0 rounded-lg shadow dark:border-gray-700 w-60 h-100 bg-[#BBC3A4]"
+              style={{borderRadius: '30px'}}
             >
                <img
                     src={product.image}
@@ -95,7 +95,7 @@ function Whiskeysellers({ handleClick }) {
               <div className="p-2 border-t border-gray-200 dark:border-gray-700">
                 {!cartItems || !cartItems.find((item) => item.id === product.id) ? (
                   <button
-                    className="w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    className="w-full bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-800 dark:hover:bg-blue-800 text-white dark:focus:ring-blue-800"
                     onClick={() => {
                       addToCart(product);
                       notifyAddedToCart(product);

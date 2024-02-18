@@ -58,11 +58,10 @@ const Home = ({
       </section>
 
       <div 
-      className="home min-h-screen bg-[#747264] overflow-hidden w-full box-sizing-border-box flex">
+      className="home min-h-screen bg-[#D7E4C0] overflow-hidden w-full box-sizing-border-box flex">
         {/* Left Side: Products */}
         <aside
-          className="shop-products float-left w-30 border border-black-100 h-screen"
-          style={{ backgroundColor: "rgb(215, 228, 192)" }}
+          className="shop-products float-left w-30 border border-black-100 h-screen bg-[#D7E4C0]"
         >
           <span className="text-black-100 text-[15px] mt-10">
             What are you Drinking?
@@ -152,7 +151,7 @@ const Home = ({
         </aside>
 
         {/* Right Side: Sections */}
-        <div className="container flex flex-col w-full overflow-x-hidden overflow-auto h-screen mt-4">
+        <div className="container flex flex-col w-full overflow-x-hidden overflow-auto h-screen mt-4 bg-[#D7E4C0]">
           {/* Best Sellers Section */}
           <section className="p-4 m-6 rounded box-content bg-inherit">
             <header
@@ -165,7 +164,7 @@ const Home = ({
                 </span>
               </h3>
             </header>
-            <article className="bg-blue-100" style={{ borderRadius: "30px" }}>
+            <article className="" style={{ borderRadius: "30px" }}>
               <Hero
                 addToCart={addToCart}
                 notifyAddedToCart={notifyAddedToCart}
@@ -238,7 +237,7 @@ const Home = ({
         </CartProvider>
       </div>
 
-      <footer className="bg-white rounded-lg shadow dark:bg-gray-900 m-0 ">
+      <footer className="bg-white rounded-lg shadow bg-[#B3A398] m-0 ">
         <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
           <div className="sm:flex sm:items-center sm:justify-between">
             <a
@@ -249,14 +248,14 @@ const Home = ({
                 300ML
               </span>
             </a>
-            <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+            <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-black sm:mb-0 dark:text-black">
               <li>
                 <span>Located opposite Starbucks Hotel Eldoret</span>
               </li>
             </ul>
           </div>
           <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <span class="block text-sm text-gray-500 sm:text-center dark:text-black">
             © 2024{" "}
             <a href="https://github.com/Murega14" class="hover:underline">
               Bravin Murega™

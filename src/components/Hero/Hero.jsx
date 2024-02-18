@@ -11,6 +11,9 @@ import { useContext } from "react";
 import { CartContext } from "../../context/cart";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 const cards = [
@@ -29,6 +32,16 @@ function Hero() {
   const { cartItems, addToCart, removeFromCart } =
     useContext(CartContext) || {};
 
+
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 2
+    };
+
+  
   const notifyAddedToCart = (product) =>
     toast.success(`${product.name} added to cart!`, {
       position: "top-center",
@@ -71,22 +84,21 @@ function Hero() {
   return (
     <>
       <ToastContainer />
-      <div
-            className="cards-container flex w-full overflow-x-auto bg-['teal'] relative"
+        <div
+            className="cards-container flex w-full overflow-x-hidden relative"
             style={{ borderRadius: "30px" }}
           >
             <div
-              className="card flex space-x-4 m-0 bg-white"
+              className="card flex space-x-4 m-0"
               style={{ borderRadius: "30px" }}
             >
               {cards.map((product) => (
                   <div
                     key={product.id}
                     data-carousel-item
-                    className="best-seller-product-card hover:bg-green-800 transition-all border-white px-6 py-0 box-content shadow m-4 w-60 h-100"
+                    className="best-seller-product-card bg-[#BBC3A4] transition-all border-white px-6 py-0 box-content shadow m-4 w-60 h-100"
                     style={{
                       borderRadius: "25px",
-                      backgroundColor: "rgb(198, 220,186)",
                     }}
                   >
                     <img
@@ -106,7 +118,7 @@ function Hero() {
                       {!cartItems ||
                       !cartItems.find((item) => item.id === product.id) ? (
                         <button
-                          className="w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                          className="w-full bg-blue-800 text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-800 dark:hover:bg-blue-900 dark:focus:ring-blue-800"
                           onClick={() => {
                             addToCart(product);
                             notifyAddedToCart(product);
@@ -149,6 +161,7 @@ function Hero() {
                   </div>
                 ))
               }
+              
             </div>
 
             {/* Add horizontal scroll buttons */}
@@ -156,6 +169,8 @@ function Hero() {
 
             <Cart showModal={showModal} toggle={toggle} cartItems={cartItems} />
           </div>
+      
+      
       
     </>
   );
