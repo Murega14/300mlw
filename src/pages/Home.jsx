@@ -60,7 +60,7 @@ const Home = ({
       <div 
       className="home min-h-screen bg-[#D7E4C0] overflow-hidden w-full box-sizing-border-box flex">
         {/* Left Side: Products */}
-       {/*  <aside
+         <aside
           className="shop-products float-left w-30 border border-black-100 h-screen bg-[#D7E4C0]"
         >
           <span className="text-black-100 text-[15px] mt-10">
@@ -148,10 +148,10 @@ const Home = ({
               </li>
             </ul>
           </div>
-        </aside> */}
+        </aside>
 
         {/* Right Side: Sections */}
-        <div className="container flex flex-col w-full overflow-x-hidden min-h-screen mt-4 bg-[#D7E4C0]">
+        <div className="container flex flex-col w-full overflow-x-hidden h-screen mt-4 bg-[#D7E4C0]">
           {/* Best Sellers Section */}
           <section className="p-4 m-6 rounded box-content bg-inherit">
             <header
