@@ -74,13 +74,13 @@ function Ginsellers({ handleClick, handleBuyNow, activeProduct }) {
       <ToastContainer />
       <div
         className="container flex w-full overflow-x-hidden"
-        style={{ borderRadius: "30px" }}
+        style={{ borderRadius: "25px" }}
       >
         <div className="gin-product-cards-container flex space-x-4 m-0 bg-[#D7E4C0]">
           {cards.map((product) => (
             <div
               key={product.id}
-              className="best-seller-product-card px-6 py-0 rounded box-content shadow m-4 w-60 h-100 bg-[#BBC3A4]"
+              className="best-seller-product-card border-gray-200 px-6 py-0 rounded-lg shadow dark:border-gray-700 w-60 h-100 bg-[#BBC3A4]"
               style={{ borderRadius: "30px"}}
             >
                <img

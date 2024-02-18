@@ -86,17 +86,17 @@ function Hero() {
       <ToastContainer />
         <div
             className="cards-container flex w-full overflow-x-hidden relative"
-            style={{ borderRadius: "30px" }}
+            style={{ borderRadius: "25px" }}
           >
             <div
               className="card flex space-x-4 m-0"
-              style={{ borderRadius: "30px" }}
+              style={{ borderRadius: "25px" }}
             >
               {cards.map((product) => (
                   <div
                     key={product.id}
                     data-carousel-item
-                    className="best-seller-product-card bg-[#BBC3A4] transition-all border-white px-6 py-0 box-content shadow m-4 w-60 h-100"
+                    className="best-seller-product-card border-gray-200 px-6 py-0 rounded-lg shadow dark:border-gray-700 w-60 h-100 bg-[#BBC3A4]"
                     style={{
                       borderRadius: "25px",
                     }}

@@ -153,7 +153,10 @@ const Home = ({
         {/* Right Side: Sections */}
         <div className="container flex flex-col w-full overflow-x-hidden h-screen mt-4 bg-[#D7E4C0]">
           {/* Best Sellers Section */}
-          <section className="p-4 m-6 rounded box-content bg-inherit">
+          <section 
+            className="p-4 m-4 rounded box-content bg-inherit" 
+            style={{ borderRadius: "25px" }}
+          >
             <header
               className="best-seller-content-header mb-0"
               data-aos="zoom-out"
@@ -176,8 +179,8 @@ const Home = ({
 
           {/* Gin Best Sellers Section */}
           <section
-            className="p-4 m-6 rounded box-content bg-inherit "
-            style={{ borderRadius: "30px" }}
+            className="p-4 m-4 rounded box-content bg-inherit "
+            style={{ borderRadius: "25px" }}
           >
             <header className="gin-content-header mb-0">
               <h3 className="text-4xl md:text-3xl lg:text-4xl font-bold mb-6 p-4 text-black-100">
@@ -206,12 +209,12 @@ const Home = ({
 
           {/* Whiskey Best Sellers Section */}
           <section
-            className="p-4 m-6 rounded box-content bg-inherit"
+            className="p-4 m-4 rounded box-content bg-inherit"
             style={{ borderRadius: "25px" }}
           >
             <header className="whiskey-content-header mb-0">
               <h3 className="text-4xl md:text-3xl lg:text-4xl font-bold mb-6">
-                <span className="best-seller-content-header text-black-100 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
+                <span className="best-seller-content-header text-black-100 text-4xl md:text-3xl lg:text-4xl font-bold mb-6">
                   Whiskey Best Sellers
                 </span>
               </h3>
