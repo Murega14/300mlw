@@ -13,6 +13,7 @@ import './styles/Home.css';
 import Cart from '../pages/Cart';
 import { CartContext } from '../context/cart';
 
+
 const cards = [
   { image: martell, name: 'Martell 750ml', price: '4000', id: '12' },
   { image: jameson, name: 'Jameson 750ML', price: '2500', id: '33' },
@@ -67,13 +68,14 @@ function Whiskeysellers({ handleClick }) {
     setShowModal(!showModal);
   };
 
+
   return (
     <>
       <ToastContainer />
       <div className="container flex w-full overflow-x-hidden"
       style={{borderRadius: '25px'}}>
-        <div className="gin-product-cards-container flex space-x-4 m-0 ">
-          {cards.map((product) => (
+         <div className="card flex space-x-4 m-0 whitespace-nowrap">
+         {cards.map((product) => (
             <div
               key={product.id}
               className="whiskey-product-card border-gray-200 px-6 py-0 rounded-lg shadow dark:border-gray-700 w-60 h-100 bg-[#BBC3A4]"
@@ -134,29 +136,13 @@ function Whiskeysellers({ handleClick }) {
               </div>
             </div>
           ))}
-        </div>
+        
+         </div>
+       
       </div>
 
       {/* Add horizontal scroll buttons */}
-      <button
-          className="scroll-button left absolute top-1/2 transform -translate-y-1/2 left-0 bg-white border border-gray-300 px-2 py-1 rounded-full cursor-pointer"
-          onClick={() => {
-            const container = document.querySelector('.whiskey-product-cards-container');
-            container.scrollLeft -= 200; // Adjust the scroll distance as needed
-          }}
-        >
-          &lt;
-        </button>
-        <button
-          className="scroll-button right absolute top-1/2 transform -translate-y-1/2 right-0 bg-white border border-gray-300 px-2 py-1 rounded-full cursor-pointer"
-          onClick={() => {
-            const container = document.querySelector('.whiskey-product-cards-container');
-            container.scrollLeft += 200; // Adjust the scroll distance as needed
-          }}
-        >
-          &gt;
-        </button>
-  
+      
       <Cart showModal={showModal} toggle={toggle} cartItems={cartItems} />
 
     </>

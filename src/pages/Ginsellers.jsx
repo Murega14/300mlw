@@ -30,6 +30,8 @@ function Ginsellers({ handleClick, handleBuyNow, activeProduct }) {
   const { cartItems, addToCart, removeFromCart } =
     useContext(CartContext) || {};
 
+  const cardsContainerRef = React.useRef(null);
+
   const notifyAddedToCart = (product) =>
     toast.success(`${product.name} added to cart!`, {
       position: "top-center",
@@ -76,25 +78,29 @@ function Ginsellers({ handleClick, handleBuyNow, activeProduct }) {
         className="container flex w-full overflow-x-hidden"
         style={{ borderRadius: "25px" }}
       >
-        <div className="gin-product-cards-container flex space-x-4 m-0 bg-[#D7E4C0]">
+        <div
+          className="gin-product-cards-container flex space-x-4 m-0 bg-[#D7E4C0]"
+          
+        >
           {cards.map((product) => (
             <div
               key={product.id}
-              className="best-seller-product-card border-gray-200 px-6 py-0 rounded-lg shadow dark:border-gray-700 w-60 h-100 bg-[#BBC3A4]"
-              style={{ borderRadius: "30px"}}
+              className="gin-seller-product-card border-gray-200 px-6 py-0 rounded-lg shadow dark:border-gray-700 w-60 h-100 bg-[#BBC3A4]"
+              style={{ borderRadius: "30px" }}
+              ref={cardsContainerRef}
             >
-               <img
-                    src={product.image}
-                    alt={`Product: ${product.name}`}
-                    className="h-60 w-60 dark:border-black-800 object-cover"
-                  />
-                  <div className="px-2 pb-2 border-t-2 dark:border-black-800">
-                    <h5 className="text-lg font-bold text-black truncate block capitalize">
-                      {product.name}
-                    </h5>
-                    <span className="text-lg font-semibold text-black cursor-auto my-3">
-                      Ksh{product.price}
-                    </span>
+              <img
+                src={product.image}
+                alt={`Product: ${product.name}`}
+                className="h-60 w-60 dark:border-black-800 object-cover"
+              />
+              <div className="px-2 pb-2 border-t-2 dark:border-black-800">
+                <h5 className="text-lg font-bold text-black truncate block capitalize">
+                  {product.name}
+                </h5>
+                <span className="text-lg font-semibold text-black cursor-auto my-3">
+                  Ksh{product.price}
+                </span>
               </div>
               <div className="p-2 border-t border-gray-200 dark:border-gray-700">
                 {!cartItems ||
@@ -145,24 +151,7 @@ function Ginsellers({ handleClick, handleBuyNow, activeProduct }) {
         </div>
       </div>
 
-      <button
-        className="scroll-button left absolute top-1/2 transform -translate-y-1/2 left-0 bg-white border border-gray-300 px-2 py-1 rounded-full cursor-pointer"
-        onClick={() => {
-          const container = document.querySelector(".cards-container");
-          container.scrollLeft -= 200;
-        }}
-      >
-        &lt;
-      </button>
-      <button
-        className="scroll-button right absolute top-1/2 transform -translate-y-1/2 right-0 bg-white border border-gray-300 px-2 py-1 rounded-full cursor-pointer"
-        onClick={() => {
-          const container = document.querySelector(".cards-container");
-          container.scrollLeft += 200;
-        }}
-      >
-        &gt;
-      </button>
+      
 
       <Cart showModal={showModal} toggle={toggle} cartItems={cartItems} />
     </>

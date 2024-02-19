@@ -35,18 +35,15 @@ const Home = ({
           backgroundPosition: "center",
         }}
       >
-        <div className="text-box w-full text-center dark-bg-yellow-100 ">
+        <div className="text-box w-full text-center">
           <h1
-            className="text-2xl sm:text-7xl md:text-3xl lg:text-8xl font-semibold m-10 p-7"
+            className="text-2xl sm:text-7xl md:text-3xl lg:text-8xl font-bold m-10 p-7"
             data-aos="zoom-out"
           >
             Mapema ndo Best!!
           </h1>
-          <p className="text-lg md:text-xl mb-4">
-            <span className="text-black-800 dark:text-black-800">
-              Get Affordable drinks
-            </span>{" "}
-            and have them delivered straight to your doorstep. Chaser pia ziko.
+          <p className="text-lg md:text-xl mb-4 m-10 p-7 font-semibold">
+              Get Affordable drinks and have them delivered straight to your doorstep. Chaser pia ziko.
           </p>
           <Link
             to="/shop"
@@ -58,10 +55,10 @@ const Home = ({
       </section>
 
       <div 
-      className="home min-h-screen bg-[#D7E4C0] overflow-hidden w-full box-sizing-border-box flex">
+      className="home min-h-screen bg-[#D7E4C0] overflow-hidden scroll-smooth w-full box-sizing-border-box flex">
         {/* Left Side: Products */}
-         <aside
-          className="shop-products float-left w-30 border border-black-100 h-screen bg-[#D7E4C0]"
+         {/* <aside
+          className="shop-products float-left w-30 border border-white h-screen bg-[#D7E4C0]"
         >
           <span className="text-black-100 text-[15px] mt-10">
             What are you Drinking?
@@ -71,10 +68,10 @@ const Home = ({
             style={{ position: "sticky", top: "0" }}
           >
             <ul
-              className="text-black-100"
+              className="text-black-100 border-dotted"
               style={{ position: "sticky", top: "0", textColor: "white" }}
             >
-              <li style={{ position: "sticky", top: "0" }}>
+              <li className="border-solid" style={{ position: "sticky", top: "0" }}>
                 <Link
                   to="/gin"
                   className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
@@ -148,10 +145,10 @@ const Home = ({
               </li>
             </ul>
           </div>
-        </aside>
+        </aside> */}
 
         {/* Right Side: Sections */}
-        <div className="container flex flex-col w-full overflow-x-hidden h-screen mt-4 bg-[#D7E4C0]">
+        <div className="container flex flex-col w-full overflow-y-auto mt-4 bg-[#D7E4C0]">
           {/* Best Sellers Section */}
           <section 
             className="p-4 m-4 rounded box-content bg-inherit" 
@@ -162,7 +159,7 @@ const Home = ({
               data-aos="zoom-out"
             >
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
-                <span className="best-seller-content-header text-black-100 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
+                <span className="best-seller-content-header text-black-100 text-2xl md:text-3xl lg:text-4xl font-semibold mb-6">
                   Best Sellers
                 </span>
               </h3>

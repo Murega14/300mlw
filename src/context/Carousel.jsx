@@ -1,63 +1,79 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState} from "react";
+import { useSwipeable } from "react-swipeable";
 
-const Carousel = ({ cards }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+export const CarouselItem = ({ children, width }) => {
+  return (
+      <div className="carousel-item" style={{ width: width}}>
+        {children}
+      </div>
+  );
+};
 
-  const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % cards.length);
+const Carousel = ({ children }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  const updateIndex = (newIndex) => {
+    if (newIndex < 0) {
+      newIndex =React.Children.count(children) -1;
+    } else if (newIndex >= React.Children.count(children)) {
+        newIndex = 0;
+    } setActiveIndex(newIndex);
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide - 1 + cards.length) % cards.length);
-  };
+  useEffect (() => {
+    const interval = setInterval(() => {
+      if (!paused) {
+        updateIndex(active + 1);
+      }
+    }, 5000);
+
+    return () = {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  });
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => updateIndex(activeIndex + 1);
+    onSwipedRight: () => updateIndex(activeIndex - 1);
+  });
 
   return (
-    <div className="relative w-full">
-      {/* Carousel wrapper */}
-      <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            className={`${
-              index === currentSlide ? 'duration-700 ease-in-out' : 'hidden'
-            } absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2`}
-          >
-            <img src={card.Image} alt={`Slide ${index + 1}`} className="w-full" />
-          </div>
-        ))}
-      </div>
-      {/* Slider indicators */}
-      <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-        {cards.map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            className={`w-3 h-3 rounded-full ${
-              index === currentSlide ? 'bg-white' : 'bg-gray-300'
-            }`}
-            aria-current={index === currentSlide ? 'true' : 'false'}
-            aria-label={`Slide ${index + 1}`}
-            onClick={() => setCurrentSlide(index)}
-          ></button>
-        ))}
-      </div>
-      {/* Slider controls */}
-      <button
-        type="button"
-        className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        onClick={prevSlide}
+    <div {...handlers} className="carousel"
+      onMouseEnter = {() => setPaused(true)}
+      onmouseLeave = {() => setPaused(false)}
       >
-        {/* ... (Previous button content) */}
+        <div className="inner" style={{ transform: 'translateX(-$(activeIndex * 100)%)'}}>
+          {React.Children.map(children, (chld, index) => {
+            return React.cloneElement(child, {width: '100%'});
+          })}
+        </div>
+        <div className="indicator">
+          <button onClick = {() => {
+            updateIndex(activeIndex - 1);  
+        }}>
+          &lt;
+        </button>
+        {React.Children.map(children, (child, index) => {
+          return (
+            <button className={`${index === activeIndex ? "active" : ""}`}
+                onClick={() => {
+                  updateIndex(index);
+                }}>
+                  { index + 1}
+                </button>
+            );
+        })}
+        <button onClick={() => {
+          updateIndex(activeIndex + 1);  
+      }}>
+        &gt;
       </button>
-      <button
-        type="button"
-        className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        onClick={nextSlide}
-      >
-        {/* ... (Next button content) */}
-      </button>
+        </div>
     </div>
-  );
+    );
 };
 
 export default Carousel;

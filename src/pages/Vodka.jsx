@@ -71,8 +71,8 @@ export default function Vodka() {
               <img src={product.thumbnail} alt={product.title} className='rounded-md h-48' />
               <div className='mt-4'>
                 <h1 className='text-lg uppercase font-bold'>{product.title}</h1>
-                <p className='mt-2 text-gray-600 text-sm'>{product.description.slice(0, 40)}...</p>
-                <p className='mt-2 text-gray-600'>${product.price}</p>
+                
+                <p className='mt-2 text-gray-600'>Ksh {product.price}</p>
               </div>
               <div className='mt-6 flex justify-between items-center'>
                 {
