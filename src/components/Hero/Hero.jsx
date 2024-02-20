@@ -11,7 +11,6 @@ import { useContext } from "react";
 import { CartContext } from "../../context/cart";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Carousel, CarouselItem} from '../../context/Carousel'
@@ -33,16 +32,6 @@ function Hero() {
   const { cartItems, addToCart, removeFromCart } =
     useContext(CartContext) || {};
 
-
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 2
-    };
-
-  
   const notifyAddedToCart = (product) =>
     toast.success(`${product.name} added to cart!`, {
       position: "top-center",

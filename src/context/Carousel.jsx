@@ -14,17 +14,15 @@ const Carousel = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [transformPosition, setTransformPosition] = useState(0);
 
-  //update the updateIndex function above with the following instead...
   const updateIndex = (newIndex) => {
     const numCards = calculateNumCards();
     const totalCards = React.Children.count(children);
-    const slidesToShow = totalCards <=4 ? totalCards: 4;
     const maxIndex = Math.ceil(totalCards / numCards) - 1;
-    const newStartingIndex = newIndex * slidesToShow;
-      setActiveIndex(newIndex);
+    const newStartingIndex = newIndex * numCards;
+    setActiveIndex(newIndex);
 
     // Calculate the position of the new slide set
-    const newPosition = newStartingIndex * (100 / slidesToShow);
+    const newPosition = newStartingIndex * (100 / totalCards);
     setTransformPosition(newPosition);
 
     if (newIndex < 0) {
@@ -32,16 +30,12 @@ const Carousel = ({ children }) => {
     } else if (newIndex > maxIndex) {
       newIndex = maxIndex;
     }
-
     setActiveIndex(newIndex);
-};
-
-//end of corrective snippet
- 
+  };
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
-      if (activeIndex < Math.ceil(React.Children.count(children) / numCards) - 1 - (numCards - 1)) {
+      if (activeIndex < Math.ceil(React.Children.count(children) / numCards) - 1) {
         updateIndex(activeIndex + 1);
       }
     },
@@ -52,24 +46,12 @@ const Carousel = ({ children }) => {
     }
   });
 
-  const calculateCardWidth = () => {
-    const screenWidth = window.innerWidth;
-    let numCards = 4; // Default to 1 card if screen width is too small
-    if (screenWidth >= 768) {
-      numCards = 3;
-    }
-    if (screenWidth >= 1024) {
-      numCards = 4;
-    }
-    return `${100 / numCards}%`;
-  };
-
   const calculateNumCards = () => {
     const screenWidth = window.innerWidth;
     if (screenWidth >= 1024) {
-      return 4;
+      return 5;
     } else if (screenWidth >= 768) {
-      return 3;
+      return 4;
     } else {
       return 2;
     }
@@ -88,7 +70,7 @@ const Carousel = ({ children }) => {
         style={{ transform: `translateX(-${transformPosition}%)` }}
       >
         {React.Children.map(children, (child, index) => {
-          const width = calculateCardWidth();
+          const width = `${100 / numCards}%`;
           return React.cloneElement(child, { width });
         })}
       </div>

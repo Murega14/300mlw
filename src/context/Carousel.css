@@ -13,6 +13,7 @@
     align-items: center;
     justify-content: center;
     color: #fff;
+    gap: 4px;
   }
   
   .indicators {
