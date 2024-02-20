@@ -148,7 +148,7 @@ const Home = ({
         </aside> 
 
         {/* Right Side: Sections */}
-        <div className="container flex flex-col w-7/8 overflow-y-auto mt-4 bg-[#D7E4C0]">
+        <div className="container flex flex-col w-7/8 h-screen overflow-y-auto mt-4 bg-[#D7E4C0]">
           {/* Best Sellers Section */}
           <section 
             className="p-4 m-4 rounded box-content bg-inherit" 
