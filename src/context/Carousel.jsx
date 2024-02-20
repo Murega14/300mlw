@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import './Carousel.css';
 
@@ -12,14 +12,20 @@ export const CarouselItem = ({ children, width }) => {
 
 const Carousel = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-
+  const [transformPosition, setTransformPosition] = useState(0);
 
   //update the updateIndex function above with the following instead...
   const updateIndex = (newIndex) => {
     const numCards = calculateNumCards();
     const totalCards = React.Children.count(children);
+    const slidesToShow = totalCards <=4 ? totalCards: 4;
     const maxIndex = Math.ceil(totalCards / numCards) - 1;
+    const newStartingIndex = newIndex * slidesToShow;
+      setActiveIndex(newIndex);
+
+    // Calculate the position of the new slide set
+    const newPosition = newStartingIndex * (100 / slidesToShow);
+    setTransformPosition(newPosition);
 
     if (newIndex < 0) {
       newIndex = 0;
@@ -31,19 +37,7 @@ const Carousel = ({ children }) => {
 };
 
 //end of corrective snippet
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!paused) {
-        updateIndex(activeIndex + 1);
-      }
-    }, 5000);
-
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
-  });
+ 
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
@@ -82,17 +76,16 @@ const Carousel = ({ children }) => {
   };
 
   const numCards = calculateNumCards();
+  const totalCards = React.Children.count(children);
 
   return (
     <div
       {...handlers}
       className="carousel"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(true)}
     >
       <div
         className="inner"
-        style={{ transform: `translateX(-${activeIndex * (100 / numCards)}%)` }}
+        style={{ transform: `translateX(-${transformPosition}%)` }}
       >
         {React.Children.map(children, (child, index) => {
           const width = calculateCardWidth();
@@ -107,7 +100,7 @@ const Carousel = ({ children }) => {
         >
           &lt;
         </button>
-        {Array.from({ length: Math.ceil(React.Children.count(children) / numCards) }).map((_, index) => {
+        {Array.from({ length: Math.ceil(totalCards / numCards) }).map((_, index) => {
           return (
             <button
               className={`${index === activeIndex ? "active" : ""}`}
