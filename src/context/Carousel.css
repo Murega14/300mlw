@@ -1,0 +1,45 @@
+.carousel {
+    overflow: hidden;
+  }
+  
+  .inner {
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    transition: transform 0.3s;
+  }
+  
+  .carousel-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  
+  .indicators {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0; /* Add some spacing */
+  }
+  
+  .indicators > button {
+    margin: 5px;
+    background-color: #ccc; /* Change default button color */
+    padding: 5px 10px; /* Adjust padding for better appearance */
+    border: none;
+    border-radius: 5px; /* Add subtle rounded corners */
+    cursor: pointer;
+  }
+  
+  .indicators > button.active {
+    background-color: green;
+    color: #fff;
+  }
+  
+  /* Media queries for responsiveness (optional) */
+  
+  @media (max-width: 768px) {
+    .carousel-item {
+      /* Adjust width or number of items displayed for smaller screens */
+    }
+  }
+  

@@ -12,7 +12,7 @@ import singleton from '../components/assets/singleton.png';
 import './styles/Home.css';
 import Cart from '../pages/Cart';
 import { CartContext } from '../context/cart';
-
+import { Carousel, CarouselItem } from '../context/Carousel';
 
 const cards = [
   { image: martell, name: 'Martell 750ml', price: '4000', id: '12' },
@@ -28,6 +28,7 @@ const cards = [
 function Whiskeysellers({ handleClick }) {
   const [showModal, setShowModal] = React.useState(false);
   const { cartItems, addToCart, removeFromCart } = useContext(CartContext) || {};
+
 
   const notifyAddedToCart = (product) =>
     toast.success(`${product.name} added to cart!`, {
@@ -72,73 +73,72 @@ function Whiskeysellers({ handleClick }) {
   return (
     <>
       <ToastContainer />
-      <div className="container flex w-full overflow-x-hidden"
+      <div className="container border-red-800 solid flex w-full overflow-x-hidden"
       style={{borderRadius: '25px'}}>
-         <div className="card flex space-x-4 m-0 whitespace-nowrap">
-         {cards.map((product) => (
-            <div
-              key={product.id}
-              className="whiskey-product-card border-gray-200 px-6 py-0 rounded-lg shadow dark:border-gray-700 w-60 h-100 bg-[#BBC3A4]"
-              style={{borderRadius: '30px'}}
-            >
-               <img
-                    src={product.image}
-                    alt={`Product: ${product.name}`}
-                    className="h-60 w-60 dark:border-black-800 object-cover"
-                  />
-                  <div className="px-2 pb-2 border-t-2 dark:border-black-800">
-                    <h5 className="text-lg font-bold text-black truncate block capitalize">
-                      {product.name}
-                    </h5>
-                    <span className="text-lg font-semibold text-black cursor-auto my-3">
-                      Ksh{product.price}
-                    </span>
-              </div>
-              <div className="p-2 border-t border-gray-200 dark:border-gray-700">
-                {!cartItems || !cartItems.find((item) => item.id === product.id) ? (
-                  <button
-                    className="w-full bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-800 dark:hover:bg-blue-800 text-white dark:focus:ring-blue-800"
-                    onClick={() => {
-                      addToCart(product);
-                      notifyAddedToCart(product);
-                    }}
-                  >
-                    Add to cart
-                  </button>
-                ) : (
-                  <div className="flex items-center justify-between">
-                    <div className="flex gap-2">
-                      <button
-                        className="px-2 py-1 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                        onClick={() => addToCart(product)}
-                      >
-                        +
-                      </button>
-                      <p className="text-gray-600">
-                        {cartItems.find((item) => item.id === product.id)?.quantity || 0}
-                      </p>
-                      <button
-                        className="px-2 py-1 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                        onClick={() => {
-                          const cartItem = cartItems.find((item) => item.id === product.id);
-                          if (cartItem.quantity === 1) {
-                            handleRemoveFromCart(product);
-                          } else {
-                            removeFromCart(product);
-                          }
-                        }}
-                      >
-                        -
-                      </button>
+        <Carousel>
+          {cards.map((product) => (
+            <CarouselItem key={product.id}>
+              <div
+                className="whiskey-product-card border-gray-200 px-6 py-0 rounded-lg shadow dark:border-gray-700 w-60 h-100 bg-[#BBC3A4]"
+                style={{borderRadius: '30px'}}
+              >
+                <img
+                  src={product.image}
+                  alt={`Product: ${product.name}`}
+                  className="h-60 w-60 dark:border-black-800 object-cover"
+                />
+                <div className="px-2 pb-2 border-t-2 dark:border-black-800">
+                  <h5 className="text-lg font-bold text-black truncate block capitalize">
+                    {product.name}
+                  </h5>
+                  <span className="text-lg font-semibold text-black cursor-auto my-3">
+                    Ksh{product.price}
+                  </span>
+                </div>
+                <div className="p-2 border-t border-gray-200 dark:border-gray-700">
+                  {!cartItems || !cartItems.find((item) => item.id === product.id) ? (
+                    <button
+                      className="w-full bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-800 dark:hover:bg-blue-800 text-white dark:focus:ring-blue-800"
+                      onClick={() => {
+                        addToCart(product);
+                        notifyAddedToCart(product);
+                      }}
+                    >
+                      Add to cart
+                    </button>
+                  ) : (
+                    <div className="flex items-center justify-between">
+                      <div className="flex gap-2">
+                        <button
+                          className="px-2 py-1 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                          onClick={() => addToCart(product)}
+                        >
+                          +
+                        </button>
+                        <p className="text-gray-600">
+                          {cartItems.find((item) => item.id === product.id)?.quantity || 0}
+                        </p>
+                        <button
+                          className="px-2 py-1 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                          onClick={() => {
+                            const cartItem = cartItems.find((item) => item.id === product.id);
+                            if (cartItem.quantity === 1) {
+                              handleRemoveFromCart(product);
+                            } else {
+                              removeFromCart(product);
+                            }
+                          }}
+                        >
+                          -
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
-            </div>
+            </CarouselItem>
           ))}
-        
-         </div>
-       
+        </Carousel>
       </div>
 
       {/* Add horizontal scroll buttons */}
