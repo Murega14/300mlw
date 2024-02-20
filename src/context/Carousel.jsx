@@ -35,7 +35,7 @@ const Carousel = ({ children }) => {
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
-      if (activeIndex < Math.ceil(React.Children.count(children) / numCards) - 1) {
+      if (activeIndex < Math.ceil(totalCards / numCards) - 1) {
         updateIndex(activeIndex + 1);
       }
     },
