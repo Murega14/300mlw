@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { CartContext } from '../context/cart.jsx'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { Link } from "react-router-dom"
 
 export default function Cart ({showModal, toggle}) {
 
@@ -46,7 +47,7 @@ export default function Cart ({showModal, toggle}) {
 
   return (
     showModal && (
-      <div className="flex-col flex items-center fixed inset-0 left-1/4 bg-white dark:bg-black gap-8  p-10  text-black dark:text-white font-normal uppercase text-sm">
+      <div className="flex-col flex items-center fixed inset-0 bg-gradient-to-r from-slate-900 to-slate-700 gap-8  p-10  text-black dark:text-white font-normal uppercase text-sm h-screen">
         <ToastContainer />
         <h1 className="text-2xl font-bold">Cart</h1>
         <div className="absolute right-16 top-10">
@@ -62,7 +63,7 @@ export default function Cart ({showModal, toggle}) {
             <div className="flex justify-between items-center" key={item.id}>
               <div className="flex gap-4">
                 <img src={item.thumbnail || item.image || item.Image} alt={item.title || item.name} className="rounded-md w-24 h-24" />
-                <div className="flex gap-8 justify-center">
+                <div className="flex flex-col gap-4 justify-center">
                   <h1 className="text-lg font-bold">{item.title || item.name}</h1>
                   <p className="text-gray-600">ksh{item.price}</p>
                 </div>
@@ -112,6 +113,9 @@ export default function Cart ({showModal, toggle}) {
             <h1 className="text-lg font-bold">Your cart is empty</h1>
           )
         }
+        <article>
+          <Link to="/checkout" className="text-sm text-yellow-600 hover:text-white font-semibold text-4xl ">Proceed to Checkout</Link>
+        </article>
       </div>
     )
   )

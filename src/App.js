@@ -12,6 +12,7 @@ import Whiskey from './pages/Whiskey';
 import Vodka from './pages/Vodka';
 import Beer from './pages/Beer';
 import Cigarettes from './pages/Cigarettes';
+import Checkout from './pages/Checkout'
 import { CartProvider } from './context/cart';
 
 class ErrorBoundary extends Component {
@@ -58,6 +59,7 @@ function App() {
             <Route path='/shop' element={<Product />} />
             <Route path="/beer" element={<Beer />} />
             <Route path="/cigs" element={<Cigarettes />} />
+            <Route path="/checkout" element={<Checkout />} />
           </Routes>
         </CartProvider>
       </React.Fragment>

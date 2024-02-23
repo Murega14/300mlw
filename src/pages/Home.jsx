@@ -143,12 +143,20 @@ const Home = ({
                   Cigarettes
                 </Link>
               </li>
+              <li style={{ position: "sticky", top: "0" }}>
+                <Link
+                  to="/checkout"
+                  className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
+                >
+                  Checkout
+                </Link>
+              </li>
             </ul>
           </div>
         </aside> 
 
         {/* Right Side: Sections */}
-        <div className="container flex flex-col w-7/8 h-screen overflow-y-auto mt-4 bg-[#D7E4C0]">
+        <div className="container flex flex-col l-1/8 h-screen overflow-y-auto mt-4 bg-[#D7E4C0]">
           {/* Best Sellers Section */}
           <section 
             className="p-4 m-4 rounded box-content bg-inherit" 
