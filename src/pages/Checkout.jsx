@@ -10,7 +10,7 @@ const Checkout = () => {
       <h2 className="text-black">Checkout</h2>
       <p className="text-yellow-600"> Ksh{getCartTotal()}</p>
       </header>
-      <section className="">
+      <section className="text-black font-sans">
 
       </section>
     </div>

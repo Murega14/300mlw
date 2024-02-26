@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import httpClient from '../context/httpClient';
 import { useNavigate } from 'react-router-dom';
 
 class LoginRegister extends Component {
