@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./styles/Home.css";
 import Hero from "../components/Hero/Hero";
 import Ginsellers from "../pages/Ginsellers";
 import Whiskeysellers from "../pages/Whiskeysellers";
@@ -37,17 +36,17 @@ const Home = ({
       >
         <div className="text-box w-full text-center">
           <h1
-            className="text-2xl sm:text-7xl md:text-3xl lg:text-8xl font-bold m-10 p-7"
+            className="text-2xl sm:text-7xl md:text-xl lg:text-8xl font-bold m-10 p-7"
             data-aos="zoom-out"
           >
             Mapema ndo Best!!
           </h1>
-          <p className="text-lg md:text-xl mb-4 m-10 p-7 font-semibold">
+          <p className="text-lg md:text-xl mb-4 m-10 p-7 font-semibold dark:text-blue-600">
               Get Affordable drinks and have them delivered straight to your doorstep. Chaser pia ziko.
           </p>
           <Link
             to="/shop"
-            className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded"
+            className="bg-blue-800 dark:bg-blue-800 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
           >
             Shop Now
           </Link>
