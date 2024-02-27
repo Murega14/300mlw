@@ -15,7 +15,7 @@ import { CartContext } from '../context/cart';
 import { Carousel, CarouselItem } from '../context/Carousel';
 
 const cards = [
-  { image: martell, name: 'Martell 750ml', price: '4000', id: '12' },
+  { image: martell, name: 'Martell 750ml', price: '4000', id: '42' },
   { image: jameson, name: 'Jameson 750ML', price: '2500', id: '33' },
   { image: jd, name: 'Jack Daniels 750ML', price: '3000', id: '34' },
   { image: jimbeam, name: 'Jim Beam 750ML', price: '2500', id: '32' },
@@ -73,13 +73,13 @@ function Whiskeysellers({ handleClick }) {
   return (
     <>
       <ToastContainer />
-      <div className="container border-red-800 solid flex w-full overflow-x-hidden"
+      <div className="container border-4 border-red-800 solid flex w-screen overflow-x-hidden gap-6 p-4 m-4"
       style={{borderRadius: '25px'}}>
         <Carousel>
           {cards.map((product) => (
             <CarouselItem key={product.id}>
               <div
-                className="whiskey-product-card border-gray-200 px-6 py-0 rounded-lg shadow dark:border-gray-700 w-60 h-100 bg-[#BBC3A4]"
+                className="whiskey-product-card border-gray-200 px-6 py-0 rounded-lg border-2 shadow dark:border-gray-700 w-60 h-100 sm:w-60 sm:h-100 md:w-60 md:h-100 gap-8 bg-[#BBC3A4] "
                 style={{borderRadius: '30px'}}
               >
                 <img

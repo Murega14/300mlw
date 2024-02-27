@@ -55,111 +55,12 @@ const Home = ({
       </section>
 
       <div 
-      className="home min-h-screen bg-[#D7E4C0] overflow-hidden scroll-smooth w-full box-sizing-border-box flex">
-        {/* Left Side: Products */}
-          <aside
-          className="shop-products float-right w-1/8 border border-white h-screen bg-[#D7E4C0]"
-        >
-          <span className="text-black-100 text-[15px] mt-10">
-            What are you Drinking?
-          </span>
-          <div
-            className="container box-border h-screen"
-            style={{ position: "sticky", top: "0" }}
-          >
-            <ul
-              className="text-black-100 border-dotted"
-              style={{ position: "sticky", top: "0", textColor: "white" }}
-            >
-              <li className="border-solid" style={{ position: "sticky", top: "0" }}>
-                <Link
-                  to="/gin"
-                  className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
-                >
-                  Gin
-                </Link>
-              </li>
-              <li style={{ position: "sticky", top: "0" }}>
-                <Link
-                  to="/whiskey"
-                  className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
-                >
-                  Whiskey
-                </Link>
-              </li>
-              <li style={{ position: "sticky", top: "0" }}>
-                <Link
-                  to="/vodka"
-                  className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
-                >
-                  Vodka
-                </Link>
-              </li>
-              <li style={{ position: "sticky", top: "0" }}>
-                <Link
-                  to="/rum"
-                  className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
-                >
-                  Rum
-                </Link>
-              </li>
-              <li style={{ position: "sticky", top: "0" }}>
-                <Link
-                  to="/beer"
-                  className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
-                >
-                  Beer
-                </Link>
-              </li>
-              <li style={{ position: "sticky", top: "0" }}>
-                <Link
-                  to="/wine"
-                  className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
-                >
-                  Wine
-                </Link>
-              </li>
-              <li style={{ position: "sticky", top: "0" }}>
-                <Link
-                  to="tequila"
-                  className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
-                >
-                  Tequila
-                </Link>
-              </li>
-              <li style={{ position: "sticky", top: "0" }}>
-                <Link
-                  to="/mixers"
-                  className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
-                >
-                  Mixers
-                </Link>
-              </li>
-              <li style={{ position: "sticky", top: "0" }}>
-                <Link
-                  to="cigs"
-                  className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
-                >
-                  Cigarettes
-                </Link>
-              </li>
-              <li style={{ position: "sticky", top: "0" }}>
-                <Link
-                  to="/checkout"
-                  className="hover:text-blue-600 text-[15px] flex items-center hover:bg-white rounded px-5 py-3 transition-all"
-                >
-                  Checkout
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </aside> 
-
-        {/* Right Side: Sections */}
-        <div className="container flex flex-col l-1/8 h-screen overflow-y-auto mt-4 bg-[#D7E4C0]">
+      className="home bg-[#D7E4C0] overflow-hidden scroll-smooth w-screen">
+        {/* Sections */}
+        <div className="container flex flex-col mt-4 bg-[#D7E4C0]">
           {/* Best Sellers Section */}
           <section 
-            className="p-4 m-4 rounded box-content bg-inherit" 
+            className="p-4 m-4 rounded box-content bg-inherit w-screen" 
             style={{ borderRadius: "25px" }}
           >
             <header
@@ -224,7 +125,7 @@ const Home = ({
                 </span>
               </h3>
             </header>
-            <article className="solid rounded" style={{ borderRadius: "30px" }}>
+            <article className="solid rounded w-full" style={{ borderRadius: "30px" }}>
               <Whiskeysellers
                 cards={cards}
                 handleClick={handleClick}

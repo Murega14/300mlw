@@ -46,9 +46,9 @@ export default function Cart({ showModal, toggle }) {
 
   return (
     showModal && (
-      <div className="flex items-center border-4 border-red-600 fixed inset-0 bg-gradient-to-r from-slate-900 to-slate-700 gap-8 p-10 text-black dark:text-white font-normal uppercase text-sm">
+      <div className="flex flex-col fixed inset-0 bg-gradient-to-r from-slate-900 to-slate-700 gap-8 p-10 text-black dark:text-white font-normal uppercase text-sm">
         <ToastContainer />
-        <div className="absolute right-16 top-10">
+        <div className="absolute top-10 right-16">
           <button
             className="px-4 py-2 bg-gray-800 text-green-8 text-xs font-bold uppercase border-r-4 rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
             onClick={toggle}
@@ -56,9 +56,10 @@ export default function Cart({ showModal, toggle }) {
             Close Cart
           </button>
         </div>
-        <div className="overflow-auto max-h-full flex-grow">
-          <table className="w-full border-collapse">
-            <thead>
+        <div className="overflow-auto flex-grow w-1/2">
+          <table className="w-full justify-self-center border-collapse">
+            {/* Table header */}
+            <thead className="">
               <tr>
                 <th className="border border-gray-400 px-4 py-2">Image</th>
                 <th className="border border-gray-400 px-4 py-2">Name</th>
@@ -68,13 +69,14 @@ export default function Cart({ showModal, toggle }) {
               </tr>
             </thead>
             <tbody>
+              {/* Cart items */}
               {cartItems.map((item) => (
                 <tr key={item.id}>
                   <td className="border border-gray-400 px-4 py-2">
                     <img
                       src={item.thumbnail || item.image || item.Image}
                       alt={item.title || item.name}
-                      className="rounded-md w-24 h-24"
+                      className="rounded-md object-contain"
                     />
                   </td>
                   <td className="border border-gray-400 px-4 py-2">
@@ -124,9 +126,9 @@ export default function Cart({ showModal, toggle }) {
             </tbody>
           </table>
         </div>
-        <aside className="border-separate border-red-50">
+        <aside className="border-separate border-red-50 position-relative inline">
           {cartItems.length > 0 ? (
-            <div className="flex flex-col justify-between items-center">
+            <div className="border-2 border-red-600 ">
               <h2 className="text-md font-bold mb-4">
                 Total: Ksh {getCartTotal()}
               </h2>
@@ -144,7 +146,7 @@ export default function Cart({ showModal, toggle }) {
             <h1 className="text-lg font-bold">Your cart is empty</h1>
           )}
         </aside>
-        <article>
+        <article className="text-center mt-4">
           <Link
             to="/checkout"
             className="text-yellow-600 hover:text-white font-semibold text-sm items-baseline justify-center"
