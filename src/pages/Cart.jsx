@@ -45,9 +45,10 @@ export default function Cart({ showModal, toggle }) {
   };
 
   return (
-    <>
+  
       showModal && (
-      <div className=" flex items-center border-4 border-red-600  fixed inset-0 bg-gradient-to-r from-slate-900 to-slate-700 gap-8  p-10  text-black dark:text-white font-normal uppercase text-sm m-19">
+        <>
+      <div className=" flex items-center border-4 border-red-600  fixed inset-0 bg-gradient-to-r from-slate-900 to-slate-700 gap-8  p-10  text-black dark:text-white font-normal uppercase text-sm ">
         <ToastContainer />
         <div className="absolute right-16 top-10">
           <button
@@ -133,8 +134,8 @@ export default function Cart({ showModal, toggle }) {
         Proceed to Checkout
       </Link>
     </article>
-    )
     </>
+    )
   );
 }
 
