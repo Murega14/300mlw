@@ -45,10 +45,8 @@ export default function Cart({ showModal, toggle }) {
   };
 
   return (
-  
-      showModal && (
-        <>
-      <div className=" flex items-center border-4 border-red-600  fixed inset-0 bg-gradient-to-r from-slate-900 to-slate-700 gap-8  p-10  text-black dark:text-white font-normal uppercase text-sm ">
+    showModal && (
+      <div className="flex items-center border-4 border-red-600 fixed inset-0 bg-gradient-to-r from-slate-900 to-slate-700 gap-8 p-10 text-black dark:text-white font-normal uppercase text-sm">
         <ToastContainer />
         <div className="absolute right-16 top-10">
           <button
@@ -58,83 +56,103 @@ export default function Cart({ showModal, toggle }) {
             Close Cart
           </button>
         </div>
-        <table className="border-collapse items-start float-start overflow-auto ">
-          
-          <tbody>
-            {cartItems.map((item) => (
-              <tr key={item.id}>
-                <td className="border border-gray-400 px-4 py-2">
-                  <img
-                    src={item.thumbnail || item.image || item.Image}
-                    alt={item.title || item.name}
-                    className="rounded-md w-24 h-24"
-                  />
-                </td>
-                <td className="border border-gray-400 px-4 py-2">
-                  {item.title || item.name}
-                </td>
-                <td className="border border-gray-400 px-4 py-2">
-                  ksh {item.price}
-                </td>
-                <td className="border border-gray-400 px-4 py-2">
-                  <button
-                    className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                    onClick={() => {
-                      addToCart(item);
-                    }}
-                  >
-                    +
-                  </button>
-                  <span className="px-2">{item.quantity}</span>
-                  <button
-                    className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                    onClick={() => {
-                      const cartItem = cartItems.find(
-                        (product) => product.id === item.id
-                      );
-                      if (cartItem.quantity === 1) {
-                        handleRemoveFromCart(item);
-                      } else {
-                        removeFromCart(item);
-                      }
-                    }}
-                  >
-                    -
-                  </button>
-                </td>
+        <div className="overflow-auto max-h-full flex-grow">
+          <table className="w-full border-collapse">
+            <thead>
+              <tr>
+                <th className="border border-gray-400 px-4 py-2">Image</th>
+                <th className="border border-gray-400 px-4 py-2">Name</th>
+                <th className="border border-gray-400 px-4 py-2">Price</th>
+                <th className="border border-gray-400 px-4 py-2">Quantity</th>
+                <th className="border border-gray-400 px-4 py-2">Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        <aside className="float-right border-separate border-red-50">
-        {cartItems.length > 0 ? (
-          <div className="flex flex-col justify-between items-center">
-            <h2 className="text-md font-bold mb-4">Total: Ksh {getCartTotal()}</h2>
-            <button
-              className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-              onClick={() => {
-                clearCart();
-                notifyCartCleared();
-              }}
-            >
-              Clear cart
-            </button>
-          </div>
-        ) : (
-          <h1 className="text-lg font-bold">Your cart is empty</h1>
-        )}
+            </thead>
+            <tbody>
+              {cartItems.map((item) => (
+                <tr key={item.id}>
+                  <td className="border border-gray-400 px-4 py-2">
+                    <img
+                      src={item.thumbnail || item.image || item.Image}
+                      alt={item.title || item.name}
+                      className="rounded-md w-24 h-24"
+                    />
+                  </td>
+                  <td className="border border-gray-400 px-4 py-2">
+                    {item.title || item.name}
+                  </td>
+                  <td className="border border-gray-400 px-4 py-2">
+                    ksh {item.price}
+                  </td>
+                  <td className="border border-gray-400 px-4 py-2">
+                    <button
+                      className="px-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                      onClick={() => {
+                        addToCart(item);
+                      }}
+                    >
+                      +
+                    </button>
+                    <span className="px-2">{item.quantity}</span>
+                    <button
+                      className="px-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                      onClick={() => {
+                        const cartItem = cartItems.find(
+                          (product) => product.id === item.id
+                        );
+                        if (cartItem.quantity === 1) {
+                          handleRemoveFromCart(item);
+                        } else {
+                          removeFromCart(item);
+                        }
+                      }}
+                    >
+                      -
+                    </button>
+                  </td>
+                  <td className="border border-gray-400 px-4 py-2">
+                    <button
+                      className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                      onClick={() => {
+                        handleRemoveFromCart(item);
+                      }}
+                    >
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <aside className="border-separate border-red-50">
+          {cartItems.length > 0 ? (
+            <div className="flex flex-col justify-between items-center">
+              <h2 className="text-md font-bold mb-4">
+                Total: Ksh {getCartTotal()}
+              </h2>
+              <button
+                className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                onClick={() => {
+                  clearCart();
+                  notifyCartCleared();
+                }}
+              >
+                Clear cart
+              </button>
+            </div>
+          ) : (
+            <h1 className="text-lg font-bold">Your cart is empty</h1>
+          )}
         </aside>
-        
+        <article>
+          <Link
+            to="/checkout"
+            className="text-yellow-600 hover:text-white font-semibold text-sm items-baseline justify-center"
+          >
+            Proceed to Checkout
+          </Link>
+        </article>
       </div>
-      <article>
-      <Link
-        to="/checkout"
-        className="text-yellow-600 hover:text-white font-semibold text-sm items-baseline justify-center"
-      >
-        Proceed to Checkout
-      </Link>
-    </article>
-    </>
     )
   );
 }
