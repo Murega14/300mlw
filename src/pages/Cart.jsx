@@ -148,7 +148,7 @@ export default function Cart({ showModal, toggle }) {
         </aside>
         <article className="text-center mt-4">
           <Link
-            to="/checkout"
+            to={cartItems.length > 0 ? "/checkout" : "#"}
             className="text-yellow-600 hover:text-white font-semibold text-sm items-baseline justify-center"
           >
             Proceed to Checkout

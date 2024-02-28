@@ -73,13 +73,13 @@ function Whiskeysellers({ handleClick }) {
   return (
     <>
       <ToastContainer />
-      <div className="container border-4 border-red-800 solid flex w-screen overflow-x-hidden gap-6 p-4 m-4"
+      <div className="container flex w-screen overflow-x-hidden gap-6 p-4 m-4"
       style={{borderRadius: '25px'}}>
         <Carousel>
           {cards.map((product) => (
             <CarouselItem key={product.id}>
               <div
-                className="whiskey-product-card border-gray-200 px-6 py-0 rounded-lg border-2 shadow dark:border-gray-700 w-40 h-80 sm:w-60 sm:h-100 md:w-60 md:h-100 xl:w-80 xl:h-120 gap-8 bg-[#BBC3A4] "
+                className="whiskey-product-card border-gray-200 px-6 py-0 rounded-lg border-2 shadow dark:border-gray-700 w-40 h-100 sm:w-60 sm:h-100 md:w-60 md:h-100 xl:w-80 xl:h-100 gap-2 bg-[#BBC3A4] "
                 style={{borderRadius: '30px'}}
               >
                 <img

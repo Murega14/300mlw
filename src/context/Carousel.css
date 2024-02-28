@@ -6,7 +6,7 @@
     white-space: nowrap;
     scroll-snap-type: x mandatory;
     transition: transform 0.3s;
-    gap: 6px;
+    gap: 4px;
   }
   
   .carousel-item {
@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: center;
     color: #fff;
-    gap: 6px;
+    gap: 4px;
   }
   
   .indicators {

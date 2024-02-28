@@ -27,7 +27,7 @@ const Home = ({
   return (
     <>
       <section
-        className="landing bg-black-100 text-white flex items-center justify-center min-h-screen w-full relative mb-0"
+        className="landing bg-black-100 text-white flex items-center justify-center max-h-screen w-full relative mb-0"
         style={{
           backgroundImage: `url(${logo})`,
           backgroundSize: "cover",
@@ -36,7 +36,7 @@ const Home = ({
       >
         <div className="text-box w-full text-center">
           <h1
-            className="text-xl sm:text-xl md:text-4xl lg:text-8xl font-bold m-10 p-7"
+            className=" sm:text-xl md:text-4xl lg:text-8xl font-bold m-6"
             data-aos="zoom-out"
           >
             Mapema ndo Best!!
@@ -46,6 +46,7 @@ const Home = ({
           </p>
           <Link
             to="/shop"
+            
             className="bg-blue-800 dark:bg-blue-800 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
           >
             Shop Now
