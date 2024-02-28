@@ -36,7 +36,7 @@ const Home = ({
       >
         <div className="text-box w-full text-center">
           <h1
-            className="text-2xl sm:text-7xl md:text-xl lg:text-8xl font-bold m-10 p-7"
+            className="text-xl sm:text-xl md:text-4xl lg:text-8xl font-bold m-10 p-7"
             data-aos="zoom-out"
           >
             Mapema ndo Best!!
