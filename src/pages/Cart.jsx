@@ -46,7 +46,7 @@ export default function Cart({ showModal, toggle }) {
 
   return (
     showModal && (
-      <div className="flex flex-col fixed inset-0 bg-gradient-to-r from-slate-900 to-slate-700 gap-8 p-10 text-black dark:text-white font-normal uppercase text-sm">
+      <div className="flex flex-col fixed inset-0 bg-gray-400 gap-8 p-10 text-black dark:text-white font-normal lowercase text-md">
         <ToastContainer />
         <div className="absolute top-10 right-16">
           <button
@@ -56,36 +56,36 @@ export default function Cart({ showModal, toggle }) {
             Close Cart
           </button>
         </div>
-        <div className="overflow-auto flex-grow w-1/2">
-          <table className="w-full justify-self-center border-collapse">
+        <div className="flex-grow w-screen">
+          <table className="w-full table-fixed object-cover justify-self-center border-collapse">
             {/* Table header */}
-            <thead className="">
+            <thead className="w-full">
               <tr>
-                <th className="border border-gray-400 px-4 py-2">Image</th>
-                <th className="border border-gray-400 px-4 py-2">Name</th>
-                <th className="border border-gray-400 px-4 py-2">Price</th>
-                <th className="border border-gray-400 px-4 py-2">Quantity</th>
-                <th className="border border-gray-400 px-4 py-2">Actions</th>
+                <th className="border w-1/5 border-black-400 px-4 py-2">Image</th>
+                <th className="border w-1/5 border-black-400 px-4 py-2">Name</th>
+                <th className="border w-1/5 border-black-400 px-4 py-2">Price</th>
+                <th className="border w-1/5 border-black-400 px-4 py-2">Quantity</th>
+                <th className="border w-1/5 border-black-400 px-4 py-2">Actions</th>
               </tr>
             </thead>
             <tbody>
               {/* Cart items */}
               {cartItems.map((item) => (
                 <tr key={item.id}>
-                  <td className="border border-gray-400 px-4 py-2">
+                  <td className="border border-black-400 px-4 py-2">
                     <img
                       src={item.thumbnail || item.image || item.Image}
                       alt={item.title || item.name}
                       className="rounded-md object-contain"
                     />
                   </td>
-                  <td className="border border-gray-400 px-4 py-2">
+                  <td className="border border-black-400 px-4 py-2">
                     {item.title || item.name}
                   </td>
-                  <td className="border border-gray-400 px-4 py-2">
+                  <td className="border border-black-400 px-4 py-2">
                     ksh {item.price}
                   </td>
-                  <td className="border border-gray-400 px-4 py-2">
+                  <td className="border border-black-400 px-4 py-2">
                     <button
                       className="px-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
                       onClick={() => {
@@ -111,7 +111,7 @@ export default function Cart({ showModal, toggle }) {
                       -
                     </button>
                   </td>
-                  <td className="border border-gray-400 px-4 py-2">
+                  <td className="border border-black-400 px-4 py-2">
                     <button
                       className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
                       onClick={() => {
@@ -128,8 +128,8 @@ export default function Cart({ showModal, toggle }) {
         </div>
         <aside className="border-separate border-red-50 position-relative inline">
           {cartItems.length > 0 ? (
-            <div className="border-2 border-red-600 ">
-              <h2 className="text-md font-bold mb-4">
+            <div className=" ">
+              <h2 className="text-md font-bold mb-4 text-white uppercase">
                 Total: Ksh {getCartTotal()}
               </h2>
               <button
