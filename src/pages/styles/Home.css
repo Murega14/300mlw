@@ -21,8 +21,7 @@
    
    .text-box p {
     font-size: 24px;
-    background: #0000;
-    color: aliceblue;
+    color: #3c467d;
     animation: glow 1s ease-in-out infinite alternate;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
     float: left;
@@ -30,7 +29,7 @@
    }
    
    .text-box a {
-    background-color: #f7efef;
+    background: #3c467d;
     border: none;
     padding: 10px 20px;
     color: #ffea05;

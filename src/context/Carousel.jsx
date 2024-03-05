@@ -66,7 +66,7 @@ const Carousel = ({ children }) => {
       className="carousel"
     >
       <div
-        className="inner"
+        className="inner w-full"
         style={{ transform: `translateX(-${transformPosition}%)` }}
       >
         {React.Children.map(children, (child, index) => {

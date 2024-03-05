@@ -27,7 +27,7 @@ const Home = ({
   return (
     <>
       <section
-        className="landing bg-black-100 text-white flex items-center justify-center max-h-screen w-full relative mb-0"
+        className="landing bg-black-100 flex items-center justify-center max-h-screen w-full relative mb-0"
         style={{
           backgroundImage: `url(${logo})`,
           backgroundSize: "cover",
@@ -36,12 +36,12 @@ const Home = ({
       >
         <div className="text-box w-full text-center">
           <h1
-            className=" sm:text-xl md:text-4xl lg:text-8xl font-bold m-6"
+            className=" sm:text-xl md:text-4xl lg:text-8xl font-bold m-6 p-7"
             data-aos="zoom-out"
           >
             Mapema ndo Best!!
           </h1>
-          <p className="text-lg md:text-xl mb-4 m-10 p-7 font-semibold dark:text-blue-600">
+          <p className="text-lg md:text-2xl font-semibold mb-4 m-10 p-7 dark:text-blue-600 text-green-400">
               Get Affordable drinks and have them delivered straight to your doorstep. Chaser pia ziko.
           </p>
           <Link
