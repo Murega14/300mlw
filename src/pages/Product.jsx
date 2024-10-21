@@ -25,8 +25,8 @@ const cards = [
 function Product({ handleClick, handleChange }) {
   return (
     <>
-      <div className="shop-products p-6 md:p-12 lg:p-16 m-4 md:m-6 lg:m-8">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6">
+      <div className="shop-products p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 m-2 sm:m-4 md:m-6 lg:m-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
           {cards.map((card, index) => (
             <Link
               key={index}
@@ -36,10 +36,10 @@ function Product({ handleClick, handleChange }) {
               <img
                 src={card.Image}
                 alt={card.name}
-                className="w-full h-64 md:h-72 lg:h-80 object-cover"
+                className="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 object-cover"
               />
-              <div className="p-4">
-                <p className="text-gray-900 text-base md:text-lg font-semibold truncate">
+              <div className="p-2 sm:p-3 md:p-4">
+                <p className="text-gray-900 text-sm sm:text-base md:text-lg font-semibold truncate">
                   {card.name}
                 </p>
               </div>
