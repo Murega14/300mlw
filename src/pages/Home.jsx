@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { CartProvider } from "../context/cart";
 import Hero from "../components/Hero/Hero";
 import Ginsellers from "../pages/Ginsellers";
 import Whiskeysellers from "../pages/Whiskeysellers";
-import { CartProvider } from "../context/cart";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import logo from "../components/assets/logo.jpg";
-import { Link } from "react-router-dom";
 import Cart from "../pages/Cart";
+import logo from "../components/assets/logo.jpg";
 
 const Home = ({
   cards,
@@ -25,47 +25,41 @@ const Home = ({
   }, []);
 
   return (
-    <>
+    <div className="min-h-screen bg-gray-100">
       <section
-        className="landing bg-black-100 flex items-center justify-center h-screen w-full relative mb-0"
-        style={{
-          backgroundImage: `url(${logo})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        className="relative flex items-center justify-center min-h-screen bg-cover bg-center"
+        style={{ backgroundImage: `url(${logo})` }}
       >
-        <div className="text-box w-full text-center">
+        <div className="text-center p-4 md:p-8 bg-black bg-opacity-50 rounded-lg">
           <h1
-            className=" sm:text-xl md:text-4xl lg:text-8xl font-bold m-6 p-7"
+            className="text-3xl md:text-5xl lg:text-7xl font-bold mb-4 text-white"
             data-aos="zoom-out"
           >
             Mapema ndo Best!!
           </h1>
-          <p className="text-lg md:text-2xl font-semibold mb-4 m-10 p-7 dark:text-blue-600 text-green-400">
-              Get Affordable drinks and have them delivered straight to your doorstep. Chaser pia ziko.
+          <p className="text-md md:text-xl lg:text-2xl font-semibold mb-6 text-green-400">
+            Get affordable drinks delivered straight to your doorstep. Chaser pia ziko.
           </p>
           <Link
             to="/shop"
-            
-            className="bg-blue-800 dark:bg-blue-800 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
+            className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
           >
             Shop Now
           </Link>
         </div>
       </section>
 
-      <div 
-      className="home bg-[#fdfdfd] overflow-hidden scroll-smooth w-screen">
-        {/* Sections */}
-        
-
+      <div className="container mx-auto px-4 py-8">
         <CartProvider>
           <Cart />
         </CartProvider>
-      </div>
 
-      
-    </>
+        {/* Add your other components here */}
+        {/* <Hero />
+        <Ginsellers />
+        <Whiskeysellers /> */}
+      </div>
+    </div>
   );
 };
 
