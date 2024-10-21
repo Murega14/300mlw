@@ -46,114 +46,100 @@ export default function Cart({ showModal, toggle }) {
 
   return (
     showModal && (
-      <div className="flex flex-col fixed inset-0 bg-gray-400 gap-8 p-10 text-black dark:text-white font-normal lowercase text-md">
+      <div className="fixed inset-0 bg-gray-900 bg-opacity-75 p-4 sm:p-6 md:p-10 flex flex-col items-center justify-center overflow-y-auto">
         <ToastContainer />
-        <div className="absolute top-10 right-16">
+        <div className="relative bg-white rounded-lg shadow-lg w-full max-w-4xl mx-auto p-4 sm:p-6">
           <button
-            className="px-4 py-2 bg-gray-800 text-green-8 text-xs font-bold uppercase border-r-4 rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+            className="absolute top-4 right-4 text-gray-700 hover:text-gray-900 focus:outline-none"
             onClick={toggle}
           >
-            Close Cart
+            ✕
           </button>
-        </div>
-        <div className="flex-grow w-screen">
-          <table className="w-full table-fixed object-cover justify-self-center border-collapse">
-            {/* Table header */}
-            <thead className="w-full">
-              <tr>
-                <th className="border w-1/5 border-black-400 px-4 py-2">Image</th>
-                <th className="border w-1/5 border-black-400 px-4 py-2">Name</th>
-                <th className="border w-1/5 border-black-400 px-4 py-2">Price</th>
-                <th className="border w-1/5 border-black-400 px-4 py-2">Quantity</th>
-                <th className="border w-1/5 border-black-400 px-4 py-2">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* Cart items */}
-              {cartItems.map((item) => (
-                <tr key={item.id}>
-                  <td className="border border-black-400 px-4 py-2">
-                    <img
-                      src={item.thumbnail || item.image || item.Image}
-                      alt={item.title || item.name}
-                      className="rounded-md object-contain"
-                    />
-                  </td>
-                  <td className="border border-black-400 px-4 py-2">
-                    {item.title || item.name}
-                  </td>
-                  <td className="border border-black-400 px-4 py-2">
-                    ksh {item.price}
-                  </td>
-                  <td className="border border-black-400 px-4 py-2">
-                    <button
-                      className="px-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                      onClick={() => {
-                        addToCart(item);
-                      }}
-                    >
-                      +
-                    </button>
-                    <span className="px-2">{item.quantity}</span>
-                    <button
-                      className="px-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                      onClick={() => {
-                        const cartItem = cartItems.find(
-                          (product) => product.id === item.id
-                        );
-                        if (cartItem.quantity === 1) {
-                          handleRemoveFromCart(item);
-                        } else {
-                          removeFromCart(item);
-                        }
-                      }}
-                    >
-                      -
-                    </button>
-                  </td>
-                  <td className="border border-black-400 px-4 py-2">
-                    <button
-                      className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                      onClick={() => {
-                        handleRemoveFromCart(item);
-                      }}
-                    >
-                      Remove
-                    </button>
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full table-auto border-collapse">
+              <thead>
+                <tr>
+                  <th className="border-b px-4 py-2 text-left">Image</th>
+                  <th className="border-b px-4 py-2 text-left">Name</th>
+                  <th className="border-b px-4 py-2 text-left">Price</th>
+                  <th className="border-b px-4 py-2 text-left">Quantity</th>
+                  <th className="border-b px-4 py-2 text-left">Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {cartItems.map((item) => (
+                  <tr key={item.id}>
+                    <td className="border-t px-4 py-2">
+                      <img
+                        src={item.thumbnail || item.image || item.Image}
+                        alt={item.title || item.name}
+                        className="w-16 h-16 rounded-md"
+                      />
+                    </td>
+                    <td className="border-t px-4 py-2">{item.title || item.name}</td>
+                    <td className="border-t px-4 py-2">Ksh {item.price}</td>
+                    <td className="border-t px-4 py-2 flex items-center">
+                      <button
+                        className="px-2 bg-gray-800 text-white rounded hover:bg-gray-700"
+                        onClick={() => addToCart(item)}
+                      >
+                        +
+                      </button>
+                      <span className="px-2">{item.quantity}</span>
+                      <button
+                        className="px-2 bg-gray-800 text-white rounded hover:bg-gray-700"
+                        onClick={() => {
+                          const cartItem = cartItems.find((product) => product.id === item.id);
+                          if (cartItem.quantity === 1) {
+                            handleRemoveFromCart(item);
+                          } else {
+                            removeFromCart(item);
+                          }
+                        }}
+                      >
+                        -
+                      </button>
+                    </td>
+                    <td className="border-t px-4 py-2">
+                      <button
+                        className="px-4 py-1 bg-red-600 text-white rounded hover:bg-red-700"
+                        onClick={() => handleRemoveFromCart(item)}
+                      >
+                        Remove
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="mt-6 text-center">
+            {cartItems.length > 0 ? (
+              <div>
+                <h2 className="text-lg font-semibold mb-4">Total: Ksh {getCartTotal()}</h2>
+                <button
+                  className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                  onClick={() => {
+                    clearCart();
+                    notifyCartCleared();
+                  }}
+                >
+                  Clear Cart
+                </button>
+              </div>
+            ) : (
+              <h2 className="text-xl font-semibold">Your cart is empty</h2>
+            )}
+          </div>
+          <div className="mt-6 text-center">
+            <Link
+              to={cartItems.length > 0 ? "/checkout" : "#"}
+              className="text-blue-600 hover:text-blue-800"
+            >
+              Proceed to Checkout
+            </Link>
+          </div>
         </div>
-        <aside className="border-separate border-red-50 position-relative inline">
-          {cartItems.length > 0 ? (
-            <div className=" ">
-              <h2 className="text-md font-bold mb-4 text-white uppercase">
-                Total: Ksh {getCartTotal()}
-              </h2>
-              <button
-                className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                onClick={() => {
-                  clearCart();
-                  notifyCartCleared();
-                }}
-              >
-                Clear cart
-              </button>
-            </div>
-          ) : (
-            <h1 className="text-lg font-bold">Your cart is empty</h1>
-          )}
-        </aside>
-        <article className="text-center mt-4">
-          <Link
-            to={cartItems.length > 0 ? "/checkout" : "#"}
-            className="text-yellow-600 hover:text-white font-semibold text-sm items-baseline justify-center"
-          >
-            Proceed to Checkout
-          </Link>
-        </article>
       </div>
     )
   );
