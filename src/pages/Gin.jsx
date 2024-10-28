@@ -58,67 +58,95 @@ export default function Gin() {
     };
 
   return (
-    <div className='flex flex-col justify-center bg-gray-100'>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
       <ToastContainer />
-      <div className='flex justify-between items-center px-20 py-5'>
-        <h1 className='text-2xl uppercase font-bold mt-10 text-center mb-10'>Shop</h1>
-        {!showModal && <button className='px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700'
-          onClick={toggle}
-        >Cart ({cartItems.length})</button>}
+      
+      {/* Header Section */}
+      <div className="sticky top-0 z-10 backdrop-blur-md bg-white/80 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <h1 className="text-3xl font-bold text-gray-900">Shop</h1>
+            {!showModal && (
+              <button 
+                className="inline-flex items-center px-4 py-2 bg-indigo-600 text-sm font-semibold text-white rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 transition-colors duration-200"
+                onClick={toggle}
+              >
+                <ShoppingCart className="w-4 h-4 mr-2" />
+                <span>Cart ({cartItems.length})</span>
+              </button>
+            )}
+          </div>
+        </div>
       </div>
-      <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-10'>
-        {
-          products.map(product => (
-            <div key={product.id} className='bg-white shadow-md rounded-lg px-10 py-10'>
-              <img src={product.thumbnail} alt={product.title} className='rounded-md h-48' />
-              <div className='mt-4'>
-                <h1 className='text-lg uppercase font-bold'>{product.title}</h1>
-                <p className='mt-2 text-gray-600'>Ksh {product.price}</p>
+
+      {/* Products Grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {products.map(product => (
+            <div 
+              key={product.id} 
+              className="group bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden"
+            >
+              <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-200">
+                <img 
+                  src={product.thumbnail} 
+                  alt={product.title} 
+                  className="object-cover object-center w-full h-48 group-hover:scale-105 transition-transform duration-200"
+                />
               </div>
-              <div className='mt-6 flex justify-between items-center'>
-                {
-                  !cartItems.find(item => item.id === product.id) ? (
-                    <button className='px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700'
+              
+              <div className="p-6">
+                <h2 className="text-lg font-semibold text-gray-900 line-clamp-1">
+                  {product.title}
+                </h2>
+                <p className="mt-2 text-xl font-bold text-indigo-600">
+                  Ksh {product.price.toLocaleString()}
+                </p>
+
+                <div className="mt-6">
+                  {!cartItems.find(item => item.id === product.id) ? (
+                    <button 
+                      className="w-full inline-flex justify-center items-center px-4 py-2 bg-indigo-600 text-sm font-semibold text-white rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 transition-colors duration-200"
                       onClick={() => {
-                        addToCart(product)
-                        notifyAddedToCart(product)
-                      }
-                      }
-                      >
-                        Add to cart
-                      </button>
+                        addToCart(product);
+                        notifyAddedToCart(product);
+                      }}
+                    >
+                      Add to cart
+                    </button>
                   ) : (
-                    <div className="flex gap-4">
-                    <button
-                      className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                      onClick={() => {
-                        addToCart(product)
-                      }}
-                    >
-                      +
-                    </button>
-                    <p className='text-gray-600'>{cartItems.find(item => item.id === product.id).quantity}</p>
-                    <button
-                      className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                      onClick={() => {
-                        const cartItem = cartItems.find((item) => item.id === product.id);
-                        if (cartItem.quantity === 1) {
-                          handleRemoveFromCart(product);
-                        } else {
-                          removeFromCart(product);
-                        }
-                      }}
-                    >
-                      -
-                    </button>
-                  </div>
-                  )
-                }
+                    <div className="flex items-center justify-between gap-3">
+                      <button
+                        className="flex-1 px-3 py-2 bg-indigo-600 text-white text-sm font-semibold rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 transition-colors duration-200"
+                        onClick={() => {
+                          const cartItem = cartItems.find(item => item.id === product.id);
+                          if (cartItem.quantity === 1) {
+                            handleRemoveFromCart(product);
+                          } else {
+                            removeFromCart(product);
+                          }
+                        }}
+                      >
+                        -
+                      </button>
+                      <span className="text-lg font-semibold text-gray-900">
+                        {cartItems.find(item => item.id === product.id).quantity}
+                      </span>
+                      <button
+                        className="flex-1 px-3 py-2 bg-indigo-600 text-white text-sm font-semibold rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 transition-colors duration-200"
+                        onClick={() => addToCart(product)}
+                      >
+                        +
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-          ))
-        }
+          ))}
+        </div>
       </div>
+
       <Cart showModal={showModal} toggle={toggle} />
     </div>
   )
