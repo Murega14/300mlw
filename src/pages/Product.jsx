@@ -24,30 +24,31 @@ const cards = [
 
 function Product({ handleClick, handleChange }) {
   return (
-    <>
-      <div className="shop-products p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 m-2 sm:m-4 md:m-6 lg:m-8">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
-          {cards.map((card, index) => (
-            <Link
-              key={index}
-              to={card.route}
-              className="border border-gray-300 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl"
-            >
+    <div className="p-6 bg-white">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+        {cards.map((card, index) => (
+          <Link
+            key={index}
+            to={card.route}
+            className="group relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+          >
+            <div className="aspect-square overflow-hidden">
               <img
                 src={card.Image}
                 alt={card.name}
-                className="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 object-cover"
+                className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
               />
-              <div className="p-2 sm:p-3 md:p-4">
-                <p className="text-gray-900 text-sm sm:text-base md:text-lg font-semibold truncate">
-                  {card.name}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <p className="text-lg font-semibold text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                {card.name}
+              </p>
+            </div>
+          </Link>
+        ))}
       </div>
-    </>
+    </div>
   );
 }
 
