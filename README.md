@@ -1,70 +1,147 @@
-# Getting Started with Create React App
+# 300ML - Online Liquor Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern e-commerce web application for a liquor store built with React, TailwindCSS, and Firebase.
 
-## Available Scripts
+![300ML Screenshot](src/components/assets/applogo.png)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- 🛍️ Browse products by category (Whiskey, Gin, Vodka, Beer, Wine, etc.)
+- 🛒 Shopping cart functionality with persistent storage
+- 💫 Smooth animations and transitions using Framer Motion
+- 📱 Responsive design that works on mobile, tablet and desktop
+- 🔐 User authentication and account management
+- 💳 Secure checkout process
+- 🎯 Product filtering and search
+- ⚡ Real-time updates using Firebase
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend Framework**: React 18
+- **Styling**: TailwindCSS
+- **State Management**: React Context API
+- **Backend/Database**: Firebase
+- **Authentication**: Firebase Auth
+- **Animations**: Framer Motion
+- **Notifications**: React Toastify
+- **Routing**: React Router v6
+- **HTTP Client**: Axios
+- **Form Handling**: React Hook Form
+- **Development**: Vite
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- Node.js (v14 or higher)
+- npm or yarn
+- Git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/yourusername/300ml.git
+```
 
-### `npm run eject`
+2.Navigate to the project directory:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+cd 300ml
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3.Install dependencies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4.Create a `.env` file in the root directory and add your Firebase configuration:
 
-## Learn More
+```env
+REACT_APP_FIREBASE_API_KEY=your_api_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
+REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+REACT_APP_FIREBASE_APP_ID=your_app_id
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5.Start the development server:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+```
 
-### Code Splitting
+### Available Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- `npm start`
 
-### Analyzing the Bundle Size
+- Runs the app in development mode 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+npm test
 
-### Making a Progressive Web App
+- Launches the test runner
+- `npm run build` - Builds the app for production
+- `npm run eject` - Ejects from Create React App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Project Structure
 
-### Advanced Configuration
+```markdown
+src/
+  ├── components/         # Reusable components
+  ├── context/           # React Context providers
+  ├── pages/             # Page components
+  ├── assets/           # Images and static files
+  └── styles/           # CSS modules and global styles
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Key Features Explained
 
-### Deployment
+### Shopping Cart
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Persistent cart storage using localStorage
+- Real-time cart updates
+- Quantity adjustments
+- Remove items
+- Clear cart functionality
 
-### `npm run build` fails to minify
+### Authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Email/Password login
+- User registration
+- Password reset
+- Protected routes
+
+### Product Catalog
+
+- Category-based browsing
+- Product details view
+- Image galleries
+- Price and availability display
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+Your Name - [@muregzzzz](https://twitter.com/muregzzzz)
+
+Project Link: [https://github.com/murega14/300ml](https://github.com/murega14/300ml)
+
+## Acknowledgments
+
+- [Create React App](https://create-react-app.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Firebase](https://firebase.google.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
