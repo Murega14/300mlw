@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { CartProvider } from "../context/cart";
-import Hero from "../components/Hero/Hero";
-import Ginsellers from "../pages/Ginsellers";
-import Whiskeysellers from "../pages/Whiskeysellers";
 import Cart from "../pages/Cart";
 import logo from "../components/assets/logo.jpg";
 
@@ -25,27 +22,63 @@ const Home = ({
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen">
+      {/* Discount Banner */}
+      <div className="w-full bg-yellow-200 text-center py-2">
+        <p className="text-sm">
+          Discount will be applied at checkout for KSh 4,000 off your first order!
+        </p>
+      </div>
+
+      {/* Main Content */}
       <section
-        className="relative flex items-center justify-center min-h-screen bg-cover bg-center"
+        className="relative min-h-screen bg-cover bg-center"
         style={{ backgroundImage: `url(${logo})` }}
       >
-        <div className="text-center p-4 md:p-8 bg-black bg-opacity-50 rounded-lg">
-          <h1
-            className="text-3xl md:text-5xl lg:text-7xl font-bold mb-4 text-white"
-            data-aos="zoom-out"
+        <div className="absolute inset-0 bg-black bg-opacity-50" />
+        
+        {/* Logo */}
+        <div className="relative z-10 pt-8">
+          <h1 className="text-6xl font-bold text-white text-center">300 ML</h1>
+        </div>
+
+        {/* Main Content Container */}
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-[70vh] px-4">
+          <h2 
+            className="text-5xl md:text-6xl font-bold text-white text-center mb-6"
+            data-aos="fade-up"
           >
-            Mapema ndo Best!!
-          </h1>
-          <p className="text-md md:text-xl lg:text-2xl font-semibold mb-6 text-green-400">
-            Get affordable drinks delivered straight to your doorstep. Chaser pia ziko.
+            Unbox, Bless, Enjoy.
+          </h2>
+          
+          <p 
+            className="text-xl md:text-2xl text-white text-center mb-8 max-w-2xl"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            Discover why we're the Eldoret's #1 Liqour Store.
           </p>
+
           <Link
             to="/shop"
-            className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+            className="bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-12 rounded-full text-lg transition duration-300"
+            data-aos="fade-up"
+            data-aos-delay="200"
           >
-            Shop Now
+            Get Started
           </Link>
+        </div>
+
+        {/* Bottom Wine Bottles Section */}
+        <div className="relative z-10 w-full overflow-hidden">
+          <div className="flex justify-center items-end space-x-4 px-4 mt-8">
+            {/* This would be replaced with actual wine bottle images */}
+            <div className="w-24 h-64 bg-opacity-80"></div>
+            <div className="w-24 h-64 bg-opacity-80"></div>
+            <div className="w-24 h-64 bg-opacity-80"></div>
+            <div className="w-24 h-64 bg-opacity-80"></div>
+            <div className="w-24 h-64 bg-opacity-80"></div>
+          </div>
         </div>
       </section>
 
@@ -53,11 +86,6 @@ const Home = ({
         <CartProvider>
           <Cart />
         </CartProvider>
-
-        {/* Add your other components here */}
-        {/* <Hero />
-        <Ginsellers />
-        <Whiskeysellers /> */}
       </div>
     </div>
   );

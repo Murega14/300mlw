@@ -71,7 +71,7 @@ export default function Gin() {
                 className="inline-flex items-center px-4 py-2 bg-indigo-600 text-sm font-semibold text-white rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 transition-colors duration-200"
                 onClick={toggle}
               >
-                <ShoppingCart className="w-4 h-4 mr-2" />
+              {/* <ShoppingCart className="w-4 h-4 mr-2" /> */}
                 <span>Cart ({cartItems.length})</span>
               </button>
             )}
